@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #12161d;
+  --surface: #ffffff;
+  --surface-muted: #f4f4f5;
+  --text-muted: #3f3f46;
+  --border: #e4e4e7;
+  --brand-primary: #1f2937;
+  --brand-accent: #ea591b;
+  --brand-nav: #101318;
+  --surface-nav-panel: #ffffff;
+}
+
+.dark {
+  --background: #03060a;
+  --foreground: #f8fafc;
+  --surface: #0a0f16;
+  --surface-nav-panel: #060708;
+  --surface-muted: #162030;
+  --text-muted: #cbd5e1;
+  --border: #334155;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-text-muted: var(--text-muted);
+  --color-border-subtle: var(--border);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-nav: var(--brand-nav);
+  --color-surface-nav-panel: var(--surface-nav-panel);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.text-brand-primary {
+  color: var(--brand-primary);
+}
+
+.bg-brand-primary {
+  background-color: var(--brand-primary);
+}
+
+.text-brand-accent {
+  color: var(--brand-accent);
+}
+
+.bg-brand-accent {
+  background-color: var(--brand-accent);
+}
+
+.bg-brand-nav {
+  background-color: var(--brand-nav);
+}
+
+.btn-outline-brand {
+  border: 2px solid var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.btn-outline-brand:hover {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.themed-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.themed-muted-surface {
+  background: var(--surface-muted);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+@keyframes whatsapp-horizontal-shake {
+  0%,
+  88%,
+  100% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(-3px);
+  }
+  92% {
+    transform: translateX(3px);
+  }
+  94% {
+    transform: translateX(-2px);
+  }
+  96% {
+    transform: translateX(2px);
+  }
+  98% {
+    transform: translateX(-1px);
+  }
+}
+
+.whatsapp-horizontal-shake {
+  animation: whatsapp-horizontal-shake 5s ease-in-out infinite;
+}
+
+@keyframes accreditations-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.accreditations-track {
+  animation: accreditations-marquee 34s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accreditations-track {
+    animation: none;
+  }
+}
