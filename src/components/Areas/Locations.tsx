@@ -386,8 +386,8 @@ export function HomeLocations() {
           </h2>
 
           <p className="text-base leading-8 text-[var(--text-muted)]">
-            Jet Now Drainage provides fast response, cost effective, and expert drainage solutions
-            to all residential and commercial properties across London and the surrounding counties.
+            Excel Fire provides compliant, practical and expert passive fire protection solutions
+            to housing, commercial and public-sector properties across London and the surrounding counties.
           </p>
 
           <div className="w-full max-w-[360px] rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3 shadow-[0_18px_32px_-26px_rgba(15,23,42,0.28)] lg:hidden">

@@ -1,4 +1,4 @@
-git checkout -b feat/jetnowinitial
+git checkout -b feat/excelfirechanges
 git add .
-git commit -m "fix: cleanups"
-git push -u origin feat/jetnowinitial
+git commit -m "feat: extend to full site"
+git push -u excelfire feat/excelfirechanges

@@ -7,12 +7,30 @@ type LogoVideoProps = {
   ariaLabel?: string;
 };
 
+function safePlay(video: HTMLVideoElement) {
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // Autoplay can be interrupted by browser power-saving policies.
+    });
+  }
+}
+
 export function LogoVideo({ className, ariaLabel = "Excel Fire logo" }: LogoVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const restartTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+
+    const attemptPlay = () => safePlay(el);
+
+    attemptPlay();
+    el.addEventListener("canplay", attemptPlay);
+
     return () => {
+      el.removeEventListener("canplay", attemptPlay);
       if (restartTimeoutRef.current !== null) {
         window.clearTimeout(restartTimeoutRef.current);
       }
@@ -28,7 +46,7 @@ export function LogoVideo({ className, ariaLabel = "Excel Fire logo" }: LogoVide
       const el = videoRef.current;
       if (!el) return;
       el.currentTime = 0;
-      void el.play();
+      safePlay(el);
     }, 2000);
   };
 
@@ -36,7 +54,6 @@ export function LogoVideo({ className, ariaLabel = "Excel Fire logo" }: LogoVide
     <video
       ref={videoRef}
       src="/Excel/ExcelLogo.mp4"
-      autoPlay
       muted
       playsInline
       preload="metadata"
@@ -46,4 +63,3 @@ export function LogoVideo({ className, ariaLabel = "Excel Fire logo" }: LogoVide
     />
   );
 }
-

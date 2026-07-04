@@ -1,61 +1,55 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Section } from "@/components/Ui/Section";
+import { inlineLinkClass } from "@/components/Ui/buttons";
 
 const aboutHighlights = [
-  "Independent, family-run drainage specialists",
-  "Serving London, Essex and Hertfordshire",
-  "Residential and commercial drainage support",
-  "Experienced engineers backed by the latest technology",
+  "UKAS third-party certified assessors, supervisors and technicians",
+  "FIRAS-accredited fire stopping and installation",
+  "Housing, commercial and public sector delivery",
+  "Serving London, the South East and wider England",
 ];
 
 export function AboutIntro() {
   return (
-    <section className="py-16 md:py-24">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
-        <div className="relative h-[320px] overflow-hidden rounded-sm md:h-[460px]">
+    <Section>
+      <article className="grid items-stretch gap-4 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-nav-panel)] md:grid-cols-[1.05fr_1fr]">
+        <div className="relative min-h-[240px] md:min-h-[320px]">
           <Image
-            src="/JetNow/HomeDrainServices.jpg"
-            alt="Jet Now Drainage engineer carrying out specialist drainage work"
+            src="/Excel/Services/site-installation-1.jpg"
+            alt="Excel Fire engineer carrying out certified fire door works"
             fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
+            sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover"
           />
         </div>
 
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold uppercase tracking-tight text-brand-primary md:text-4xl">
-            Local Drainage Experts
+        <div className="flex flex-col justify-center p-5 md:p-7">
+          <p className="text-muted text-xs font-medium uppercase tracking-[0.16em]">Who we are</p>
+          <h2 className="text-foreground mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+            A trusted fire safety partner
           </h2>
-
-          <p className="text-base leading-8 text-[var(--text-muted)]">
-            Jet Now Drainage is an independent, family-run business delivering dependable drainage
-            services for homes, landlords, and businesses. Our team focuses on practical solutions,
-            clear communication, and high standards on every job.
+          <p className="mt-3 max-w-[56ch] text-sm leading-7 text-[var(--text-muted)] md:text-base">
+            Excel Fire supports principal contractors, housing providers and asset teams with
+            compliant, well-managed passive fire protection delivery. Our team focuses on practical
+            solutions, clear communication and high standards on every project — from survey through
+            to certified handover.
           </p>
 
-          <p className="text-base leading-8 text-[var(--text-muted)]">
-            Covering London, Essex and Hertfordshire, we provide responsive support for both urgent
-            call-outs and planned maintenance work, helping clients keep drainage systems safe,
-            compliant, and running smoothly.
-          </p>
-
-          <ul className="grid gap-3 text-base font-medium text-[var(--text-muted)] sm:grid-cols-2">
+          <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
             {aboutHighlights.map((item) => (
-              <li key={item} className="flex items-center gap-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-brand-primary" aria-hidden />
+              <li key={item} className="flex items-start gap-2.5 text-sm leading-6 text-[var(--text-muted)]">
+                <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" aria-hidden />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
 
-          <Link
-            href="/contact-us"
-            className="btn-outline-brand inline-flex px-8 py-3 text-sm font-bold uppercase tracking-wide transition"
-          >
+          <Link href="/contact-us" className={`mt-5 ${inlineLinkClass}`}>
             Speak to our team
           </Link>
         </div>
-      </div>
-    </section>
+      </article>
+    </Section>
   );
 }

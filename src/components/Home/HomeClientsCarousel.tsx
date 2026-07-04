@@ -35,15 +35,14 @@ export function HomeClientsCarousel() {
             {duplicated.map((logo, index) => (
               <div
                 key={`${logo.src}-${index}`}
-                className="flex h-10 w-[108px] shrink-0 items-center justify-center md:h-12 md:w-[124px]"
+                className="relative h-10 w-[108px] shrink-0 md:h-12 md:w-[124px]"
               >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  width={124}
-                  height={48}
+                  fill
                   sizes="124px"
-                  className="max-h-full w-auto object-contain opacity-60 transition"
+                  className="object-contain opacity-60 transition"
                   style={{ filter: "grayscale(1) saturate(0) contrast(0.92)" }}
                 />
               </div>

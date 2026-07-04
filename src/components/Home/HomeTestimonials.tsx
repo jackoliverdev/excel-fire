@@ -191,7 +191,7 @@ export function HomeTestimonials() {
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
               <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-accent">{active.title}</p>
-              <p className="mt-2 line-clamp-3 text-base leading-7 text-foreground">"{active.quote}"</p>
+              <p className="mt-2 line-clamp-3 text-base leading-7 text-foreground">&ldquo;{active.quote}&rdquo;</p>
               <div className="mt-3">
                 <p className="text-xs font-semibold text-foreground">{active.author}</p>
                 <p className="text-xs text-[var(--text-muted)]">{active.role}</p>

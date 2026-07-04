@@ -87,31 +87,15 @@ body {
   color: var(--text-muted);
 }
 
-@keyframes whatsapp-horizontal-shake {
-  0%,
-  88%,
-  100% {
-    transform: translateX(0);
-  }
-  90% {
-    transform: translateX(-3px);
-  }
-  92% {
-    transform: translateX(3px);
-  }
-  94% {
-    transform: translateX(-2px);
-  }
-  96% {
-    transform: translateX(2px);
-  }
-  98% {
-    transform: translateX(-1px);
-  }
-}
-
-.whatsapp-horizontal-shake {
-  animation: whatsapp-horizontal-shake 5s ease-in-out infinite;
+.carousel-edge-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
 }
 
 @keyframes accreditations-marquee {
