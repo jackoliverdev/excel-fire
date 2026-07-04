@@ -63,7 +63,7 @@ export function ContactReviews() {
           </h2>
           <p className="max-w-3xl text-base leading-8 text-[var(--text-muted)]">
             Independent reviews from MyJobQuote, highlighting recent customer feedback on our
-            drainage services.
+            passive fire protection and fire door services.
           </p>
         </div>
 

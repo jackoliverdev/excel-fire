@@ -1,19 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 
 type ThemeToggleButtonProps = {
   className?: string;
 };
 
+const emptySubscribe = () => () => {};
+
+/** True after hydration on the client, false during SSR. */
+function useMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+}
+
 export function ThemeToggleButton({ className = "" }: ThemeToggleButtonProps) {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   const isDark = mounted && resolvedTheme === "dark";
 

@@ -9,31 +9,31 @@ const serviceCards = [
     title: "Active Fire Systems",
     summary: "Alarm and detection support designed for safer, compliant buildings.",
     image: "/Excel/active.webp",
-    href: "/services#active-fire-systems",
+    href: "/services/active-fire-systems",
   },
   {
     title: "Fire Doors",
     summary: "Installation, remediation and compliance checks for critical fire doors.",
     image: "/Excel/doors.webp",
-    href: "/services#fire-doors",
+    href: "/services/fire-door-installation",
   },
   {
     title: "Injectaclad",
     summary: "Specialist cavity barrier repair with minimal disruption on live sites.",
     image: "/Excel/interclad.webp",
-    href: "/services#injectaclad",
+    href: "/services/injectaclad",
   },
   {
     title: "Fire Stopping",
     summary: "High-quality compartmentation and penetration sealing services.",
     image: "/Excel/stopping.webp",
-    href: "/services#fire-stopping",
+    href: "/services/passive-fire-protection",
   },
   {
     title: "Surveys",
     summary: "Clear, evidence-led inspections with practical next-step reporting.",
     image: "/Excel/surveys.webp",
-    href: "/services#surveys",
+    href: "/services/fire-door-inspections",
   },
 ];
 

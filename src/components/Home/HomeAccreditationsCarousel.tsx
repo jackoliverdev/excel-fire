@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const accreditationLogos = [
   {
@@ -36,6 +37,12 @@ export function HomeAccreditationsCarousel() {
           <h3 className="text-foreground text-lg font-semibold tracking-tight md:text-xl">
             Proudly accredited by
           </h3>
+          <Link
+            href="/accreditations"
+            className="text-sm font-semibold text-brand-accent transition hover:opacity-80"
+          >
+            What these mean →
+          </Link>
         </div>
 
         <div className="carousel-edge-fade relative overflow-hidden py-4">
@@ -43,15 +50,14 @@ export function HomeAccreditationsCarousel() {
             {duplicated.map((logo, index) => (
               <div
                 key={`${logo.src}-${index}`}
-                className="flex h-14 w-[132px] shrink-0 items-center justify-center md:h-16 md:w-[150px]"
+                className="relative h-14 w-[132px] shrink-0 md:h-16 md:w-[150px]"
               >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  width={150}
-                  height={64}
+                  fill
                   sizes="150px"
-                  className="max-h-full w-auto object-contain"
+                  className="object-contain"
                 />
               </div>
             ))}

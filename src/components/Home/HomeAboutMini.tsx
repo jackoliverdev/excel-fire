@@ -13,7 +13,6 @@ export function HomeAboutMini() {
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
-              priority={false}
             />
           </div>
 
@@ -30,7 +29,7 @@ export function HomeAboutMini() {
             </p>
 
             <Link
-              href="/about"
+              href="/about-us"
               className="mt-5 inline-flex w-fit text-sm font-semibold text-brand-accent transition hover:opacity-80"
             >
               Learn more about us

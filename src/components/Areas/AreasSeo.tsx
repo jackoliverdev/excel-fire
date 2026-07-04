@@ -159,23 +159,24 @@ const coverageByCounty: AreaGroup[] = [
 
 export function AreasSeo() {
   return (
-    <section id="full-locations" className="pb-16 md:pb-24">
+    <section id="full-locations" className="pt-10 pb-20 md:pt-12 md:pb-24">
       <div className="mx-auto w-full max-w-7xl px-6">
-        <header className="mb-6 space-y-2">
-          <h2 className="text-3xl font-bold uppercase tracking-tight text-brand-primary md:text-4xl">
-            Full Locations Covered
+        <header className="mb-6 md:mb-8">
+          <p className="text-muted text-xs font-medium uppercase tracking-[0.16em]">Coverage in detail</p>
+          <h2 className="text-foreground mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+            Full locations covered
           </h2>
-          <p className="max-w-4xl text-sm leading-7 text-[var(--text-muted)] md:text-base md:leading-8">
-            Jet Now Drainage covers London and surrounding counties, with local teams operating
-            across the locations below.
+          <p className="mt-3 max-w-[68ch] text-sm leading-7 text-[var(--text-muted)] md:text-base">
+            Excel Fire covers London and surrounding counties, with teams operating across the
+            locations below.
           </p>
         </header>
 
-        <article className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[0_14px_30px_-24px_rgba(15,23,42,0.45)] md:p-6">
+        <article className="rounded-xl border border-[var(--border)] bg-[var(--surface-nav-panel)] p-5 md:p-6">
           <div className="divide-y divide-[var(--border)]">
             {coverageByCounty.map((area) => (
               <div key={area.county} className="py-3 first:pt-0 last:pb-0">
-                <p className="text-sm font-semibold text-foreground md:text-base">{area.county}</p>
+                <h3 className="text-sm font-semibold text-foreground md:text-base">{area.county}</h3>
                 <p className="mt-1 text-sm leading-7 text-[var(--text-muted)]">{area.locations.join(", ")}</p>
               </div>
             ))}

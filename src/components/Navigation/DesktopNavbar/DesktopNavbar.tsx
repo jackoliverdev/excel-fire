@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ThemeToggleButton } from "@/components/Theme/ThemeToggleButton";
 import { LogoVideo } from "@/components/Brand/LogoVideo";
+import { siteConfig } from "@/lib/site";
 
 type DropdownItem = {
   label: string;
@@ -16,33 +17,34 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    label: "About",
-    href: "/about-us",
-    dropdown: [
-      { label: "Our Mission", description: "Who we are and how we work.", href: "/about-us" },
-      { label: "Fire Regulations", description: "Key compliance and safety guidance.", href: "/legal" },
-      { label: "Vacancies", description: "Current opportunities at Excel Fire.", href: "/contact-us" },
-      { label: "Legal - Privacy", description: "How we handle your data.", href: "/legal" },
-      { label: "Legal - Cookies", description: "Cookie and tracking policy.", href: "/legal" },
-    ],
-  },
-  {
     label: "Services",
     href: "/services",
     dropdown: [
-      { label: "Excel Fire Services", description: "Overview of all service lines.", href: "/services" },
-      { label: "Passive Fire Protection", description: "Certified installation and remediation.", href: "/services" },
-      { label: "Fire Door Installation", description: "Supply, install and compliance checks.", href: "/services" },
-      { label: "Fire Door Maintenance", description: "Planned and reactive maintenance.", href: "/services" },
-      { label: "Fire Door Inspections", description: "Evidence-led reporting and actions.", href: "/services" },
-      { label: "Fire Stopping Inspections", description: "Compartmentation assurance checks.", href: "/services" },
-      { label: "Injectaclad", description: "Cavity barrier repair system.", href: "/services" },
-      { label: "Active Fire Systems", description: "Detection and alarm system support.", href: "/services" },
-      { label: "FAQs", description: "Answers to common client queries.", href: "/contact-us" },
+      { label: "All Services", description: "Overview of every service line.", href: "/services" },
+      { label: "Passive Fire Protection", description: "FIRAS-accredited fire stopping.", href: "/services/passive-fire-protection" },
+      { label: "Fire Door Installation", description: "Certified supply and installation.", href: "/services/fire-door-installation" },
+      { label: "Fire Door Maintenance", description: "Accredited repair and upkeep.", href: "/services/fire-door-maintenance" },
+      { label: "Fire Door Inspections", description: "QR-tagged, evidence-led reporting.", href: "/services/fire-door-inspections" },
+      { label: "Fire Stopping Inspections", description: "Compartmentation assurance.", href: "/services/fire-stopping-inspections" },
+      { label: "Validation Surveys", description: "Non-intrusive communal assessments.", href: "/services/validation-surveys" },
+      { label: "Injectaclad", description: "Cavity barrier remediation.", href: "/services/injectaclad" },
+      { label: "Active Fire Systems", description: "Detection and alarm support.", href: "/services/active-fire-systems" },
     ],
   },
-  { label: "Clients", href: "/clients" },
-  { label: "Articles", href: "/articles" },
+  { label: "Sectors", href: "/sectors" },
+  { label: "Projects", href: "/projects" },
+  {
+    label: "About",
+    href: "/about-us",
+    dropdown: [
+      { label: "Our Story", description: "Who we are and how we work.", href: "/about-us" },
+      { label: "Accreditations", description: "What our certifications mean.", href: "/accreditations" },
+      { label: "Areas We Cover", description: "Where our teams operate.", href: "/areas-we-cover" },
+      { label: "Fire Regulations", description: "Your legal duties, explained.", href: "/fire-regulations" },
+      { label: "Insights", description: "Guidance from our specialists.", href: "/articles" },
+      { label: "Contact", description: "Speak to the team.", href: "/contact-us" },
+    ],
+  },
 ];
 
 export function DesktopNavbar() {
@@ -58,7 +60,7 @@ export function DesktopNavbar() {
         <nav aria-label="Primary navigation" className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) =>
             item.dropdown ? (
-              <div key={item.label} className="group relative">
+              <div key={item.label} className="group relative flex h-24 items-center">
                 <Link
                   href={item.href}
                   className="inline-flex items-center gap-1 text-sm font-semibold tracking-tight text-slate-200 transition-colors hover:text-brand-accent"
@@ -79,7 +81,7 @@ export function DesktopNavbar() {
                   </svg>
                 </Link>
 
-                <div className="pointer-events-none absolute left-1/2 top-full z-[80] mt-4 w-[680px] -translate-x-1/2 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                <div className="pointer-events-none absolute left-1/2 top-full z-[80] w-[680px] -translate-x-1/2 pt-2 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
                   <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-nav-panel)] p-4 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.55)] backdrop-blur">
                     <div className="grid gap-2.5 md:grid-cols-3">
                       {item.dropdown.map((dropdownItem) => (
@@ -108,6 +110,14 @@ export function DesktopNavbar() {
               </Link>
             ),
           )}
+
+          <a
+            href={siteConfig.phoneHref}
+            className="hidden text-sm font-semibold tracking-tight text-slate-200 transition-colors hover:text-brand-accent xl:inline-flex"
+          >
+            {siteConfig.phone}
+          </a>
+
           <Link
             href="/contact-us"
             className="inline-flex items-center rounded-md bg-brand-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"

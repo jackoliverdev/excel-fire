@@ -39,25 +39,24 @@ export function HomeCta() {
                 </Link>
               </div>
 
-              <div className="relative h-[300px] sm:h-[380px] md:hidden">
+              <div className="relative mx-auto h-[300px] w-full max-w-md sm:h-[380px] md:hidden">
                 <Image
                   src="/Excel/vanmockup%20(1).png"
                   alt="Excel Fire branded service van"
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 768px) min(100vw - 3rem, 28rem)"
                   className="object-contain object-right scale-125"
                 />
               </div>
             </div>
 
-            <div className="relative hidden md:flex md:items-end md:justify-end">
+            <div className="relative hidden h-[420px] w-full md:block lg:h-[480px]">
               <Image
                 src="/Excel/vanmockup%20(1).png"
                 alt="Excel Fire branded service van"
-                width={980}
-                height={640}
-                sizes="(min-width: 1280px) 50vw, (min-width: 1024px) 48vw, 90vw"
-                className="h-auto w-[116%] max-w-none -mr-6 object-contain drop-shadow-2xl lg:w-[124%] lg:-mr-8"
+                fill
+                sizes="(min-width: 1280px) 50vw, (min-width: 1024px) 48vw, 45vw"
+                className="object-contain object-right drop-shadow-2xl"
               />
             </div>
           </div>

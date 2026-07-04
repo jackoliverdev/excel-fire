@@ -532,20 +532,6 @@ export function HomeLocations() {
   }, []);
 
   useEffect(() => {
-    if (displayAreas.length === 0) return;
-    if (!displayAreas.some((area) => area.id === activeAreaId)) {
-      setActiveAreaId(displayAreas[0].id);
-    }
-  }, [displayAreas, activeAreaId]);
-
-  useEffect(() => {
-    if (groupedAreas.length === 0) return;
-    if (!groupedAreas.some((group) => group.id === activeRegionId)) {
-      setActiveRegionId(groupedAreas[0].id);
-    }
-  }, [groupedAreas, activeRegionId]);
-
-  useEffect(() => {
     if (typeof window === "undefined") return;
     if (!window.matchMedia("(max-width: 767px)").matches) return;
 
@@ -930,14 +916,14 @@ export function HomeLocations() {
                 onFocus={() => setActiveAreaId(area.id)}
                 onClick={() => setActiveAreaId(area.id)}
                 className={`flex items-center gap-2 rounded-md border px-3 py-2 text-left text-sm font-semibold transition ${
-                  activeAreaId === area.id
+                  activeArea?.id === area.id
                     ? "border-emerald-500 bg-emerald-500 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] dark:border-emerald-500 dark:bg-emerald-500 dark:text-white"
                     : "border-[var(--border)] bg-[var(--surface-nav-panel)] text-[var(--text-muted)] hover:border-brand-accent hover:bg-orange-50 hover:text-slate-900 dark:hover:bg-orange-950/30 dark:hover:text-orange-100"
                 }`}
               >
                 <span
                   className={`transition ${
-                    activeAreaId === area.id
+                    activeArea?.id === area.id
                       ? "text-white dark:text-white"
                       : "text-brand-accent"
                   }`}

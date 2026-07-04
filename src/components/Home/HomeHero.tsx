@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BackgroundVideo } from "@/components/Brand/BackgroundVideo";
 
 const primaryButtonClass =
   "inline-flex items-center justify-center rounded-md bg-brand-accent px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90";
@@ -9,15 +10,11 @@ const secondaryButtonClass =
 export function HomeHero() {
   return (
     <section className="relative isolate min-h-[70vh] overflow-hidden bg-black md:min-h-[76vh]">
-      <video
+      <BackgroundVideo
         src="/Excel/LondonHeroVideo.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
+        poster="/Excel/london.jpg"
         className="absolute inset-0 h-full w-full object-cover object-center"
-        aria-label="London skyline background video"
+        ariaLabel="London skyline background video"
       />
 
       <div className="absolute inset-0 bg-slate-950/42" />

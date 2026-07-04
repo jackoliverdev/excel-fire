@@ -10,24 +10,24 @@ type MobileDropdownItem = {
   href: string;
 };
 
-const aboutItems: MobileDropdownItem[] = [
-  { label: "Our Mission", href: "/about-us" },
-  { label: "Fire Regulations", href: "/legal" },
-  { label: "Vacancies", href: "/contact-us" },
-  { label: "Legal - Privacy", href: "/legal" },
-  { label: "Legal - Cookies", href: "/legal" },
+const serviceItems: MobileDropdownItem[] = [
+  { label: "All Services", href: "/services" },
+  { label: "Passive Fire Protection", href: "/services/passive-fire-protection" },
+  { label: "Fire Door Installation", href: "/services/fire-door-installation" },
+  { label: "Fire Door Maintenance", href: "/services/fire-door-maintenance" },
+  { label: "Fire Door Inspections", href: "/services/fire-door-inspections" },
+  { label: "Fire Stopping Inspections", href: "/services/fire-stopping-inspections" },
+  { label: "Validation Surveys", href: "/services/validation-surveys" },
+  { label: "Injectaclad", href: "/services/injectaclad" },
+  { label: "Active Fire Systems", href: "/services/active-fire-systems" },
 ];
 
-const serviceItems: MobileDropdownItem[] = [
-  { label: "Excel Fire Services", href: "/services" },
-  { label: "Passive Fire Protection", href: "/services" },
-  { label: "Fire Door Installation", href: "/services" },
-  { label: "Fire Door Maintenance", href: "/services" },
-  { label: "Fire Door Inspections", href: "/services" },
-  { label: "Fire Stopping Inspections", href: "/services" },
-  { label: "Injectaclad", href: "/services" },
-  { label: "Active Fire Systems", href: "/services" },
-  { label: "FAQs", href: "/contact-us" },
+const aboutItems: MobileDropdownItem[] = [
+  { label: "Our Story", href: "/about-us" },
+  { label: "Accreditations", href: "/accreditations" },
+  { label: "Areas We Cover", href: "/areas-we-cover" },
+  { label: "Fire Regulations", href: "/fire-regulations" },
+  { label: "Insights", href: "/articles" },
 ];
 
 export function MobileNavbar() {
@@ -116,29 +116,6 @@ export function MobileNavbar() {
             <nav aria-label="Mobile navigation" className="mx-auto flex w-full max-w-7xl flex-col px-6 py-4">
               <button
                 type="button"
-                onClick={() => setOpenDropdown((prev) => (prev === "about" ? null : "about"))}
-                className="inline-flex items-center justify-between rounded-md px-3 py-3 text-left text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-brand-accent"
-              >
-                About
-                <span className="text-slate-400">{openDropdown === "about" ? "−" : "+"}</span>
-              </button>
-              {openDropdown === "about" ? (
-                <div className="mb-1 ml-3 flex flex-col border-l border-white/10 pl-3">
-                  {aboutItems.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      onClick={handleCloseMenu}
-                      className="rounded-md px-2 py-2 text-xs font-medium text-slate-300 transition hover:text-brand-accent"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-
-              <button
-                type="button"
                 onClick={() => setOpenDropdown((prev) => (prev === "services" ? null : "services"))}
                 className="inline-flex items-center justify-between rounded-md px-3 py-3 text-left text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-brand-accent"
               >
@@ -161,19 +138,49 @@ export function MobileNavbar() {
               ) : null}
 
               <Link
-                href="/clients"
+                href="/sectors"
                 onClick={handleCloseMenu}
                 className="rounded-md px-3 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-brand-accent"
               >
-                Clients
+                Sectors
               </Link>
               <Link
-                href="/articles"
+                href="/projects"
                 onClick={handleCloseMenu}
                 className="rounded-md px-3 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-brand-accent"
               >
-                Articles
+                Projects
               </Link>
+
+              <button
+                type="button"
+                onClick={() => setOpenDropdown((prev) => (prev === "about" ? null : "about"))}
+                className="inline-flex items-center justify-between rounded-md px-3 py-3 text-left text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-brand-accent"
+              >
+                About
+                <span className="text-slate-400">{openDropdown === "about" ? "−" : "+"}</span>
+              </button>
+              {openDropdown === "about" ? (
+                <div className="mb-1 ml-3 flex flex-col border-l border-white/10 pl-3">
+                  {aboutItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={handleCloseMenu}
+                      className="rounded-md px-2 py-2 text-xs font-medium text-slate-300 transition hover:text-brand-accent"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+
+              <a
+                href="tel:02033029558"
+                className="rounded-md px-3 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-brand-accent"
+              >
+                Call 0203 302 9558
+              </a>
               <Link
                 href="/contact-us"
                 onClick={handleCloseMenu}
