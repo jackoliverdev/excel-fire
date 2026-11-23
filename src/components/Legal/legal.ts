@@ -3,6 +3,7 @@ export type LegalPolicy = {
   title: string;
   lastUpdated: string;
   summary: string;
+  metaDescription: string;
   markdown: string;
 };
 
@@ -12,6 +13,8 @@ export const legalPolicies: LegalPolicy[] = [
     title: "Privacy Policy",
     lastUpdated: "11/04/2026",
     summary: "How Excel Fire Ltd collects, uses and protects your personal data.",
+    metaDescription:
+      "How Excel Fire Ltd collects, uses, stores and protects personal data from enquiries and website visits, and how to exercise your data protection rights.",
     markdown: `Excel Fire Ltd is committed to protecting your personal data and handling it responsibly. This policy explains what we collect, how we use it, and the rights you have over your information.
 
 ### Who we are
@@ -52,6 +55,8 @@ You may request access, correction, or deletion of your personal data by contact
     title: "Cookie Policy",
     lastUpdated: "11/04/2026",
     summary: "The cookies this website uses and how you can manage them.",
+    metaDescription:
+      "Which cookies the Excel Fire website uses, why essential cookies are needed, how optional cookies are only set with consent, and how to manage them.",
     markdown: `This site uses cookies to ensure the website functions correctly and to understand usage trends.
 
 ### What cookies are used
@@ -76,6 +81,8 @@ For questions about cookies or personal data, please contact info@excelfireltd.c
     title: "Terms & Conditions",
     lastUpdated: "11/04/2026",
     summary: "The terms that apply to your use of this website.",
+    metaDescription:
+      "The terms of use for the Excel Fire Ltd website, covering use of the site, accuracy of information, intellectual property, quotations and liability.",
     markdown: `These terms and conditions govern your use of the Excel Fire Ltd website at excelfireltd.com.
 
 ### Use of this website

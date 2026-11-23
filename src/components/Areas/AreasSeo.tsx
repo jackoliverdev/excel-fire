@@ -1,3 +1,5 @@
+import { InlineList } from "@/components/Ui/InlineList";
+
 type AreaGroup = { county: string; locations: string[] };
 
 const coverageByCounty: AreaGroup[] = [
@@ -159,11 +161,11 @@ const coverageByCounty: AreaGroup[] = [
 
 export function AreasSeo() {
   return (
-    <section id="full-locations" className="pt-10 pb-20 md:pt-12 md:pb-24">
+    <section id="full-locations" className="section-y section-last">
       <div className="mx-auto w-full max-w-7xl px-6">
         <header className="mb-6 md:mb-8">
-          <p className="text-muted text-xs font-medium uppercase tracking-[0.16em]">Coverage in detail</p>
-          <h2 className="text-foreground mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+          <p className="eyebrow">Coverage in detail</p>
+          <h2 className="heading-2 mt-3">
             Full locations covered
           </h2>
           <p className="mt-3 max-w-[68ch] text-sm leading-7 text-[var(--text-muted)] md:text-base">
@@ -177,7 +179,7 @@ export function AreasSeo() {
             {coverageByCounty.map((area) => (
               <div key={area.county} className="py-3 first:pt-0 last:pb-0">
                 <h3 className="text-sm font-semibold text-foreground md:text-base">{area.county}</h3>
-                <p className="mt-1 text-sm leading-7 text-[var(--text-muted)]">{area.locations.join(", ")}</p>
+                <p className="mt-1 text-sm leading-7 text-[var(--text-muted)]"><InlineList items={area.locations} /></p>
               </div>
             ))}
           </div>

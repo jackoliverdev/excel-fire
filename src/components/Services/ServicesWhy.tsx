@@ -1,5 +1,6 @@
 import { Section } from "@/components/Ui/Section";
 import { SectionHeading } from "@/components/Ui/SectionHeading";
+import { tidy } from "@/lib/text";
 
 const reasons = [
   {
@@ -10,17 +11,17 @@ const reasons = [
   {
     title: "Evidence-led delivery",
     description:
-      "Photographic reporting, QR asset tagging and cloud-based dashboards keep your golden thread of building safety information complete.",
+      "Every door and seal is photographed, labelled and logged, so your golden thread of building safety information stays complete.",
   },
   {
     title: "England-wide coverage",
     description:
-      "Teams operating across England, including Greater London and the Home Counties, with responsive, competitively priced support.",
+      "Offices in London and Birmingham, with teams working across London, the South East and the rest of England.",
   },
   {
     title: "One accountable partner",
     description:
-      "Passive fire protection, fire doors and active systems under one roof — simplifying compliance for responsible persons and duty holders.",
+      "Fire stopping, fire doors and, through Excel Electrics, the alarm interlinks that control them. One programme, one point of contact.",
   },
 ];
 
@@ -29,21 +30,18 @@ export function ServicesWhy() {
     <Section>
       <SectionHeading
         eyebrow="Why Excel Fire"
-        title="Compliance you can evidence, delivery you can trust"
-        description="The responsible person or duty holder must carry out a fire safety risk assessment and maintain a fire management plan. Failure to do so can result in a fine, imprisonment, or both — we make staying compliant straightforward."
+        title="Why clients choose Excel Fire"
+        description="Responsible persons must be able to prove their building's fire safety measures work. Everything we do is designed to leave you with that proof."
       />
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <ul className="grid gap-x-10 gap-y-10 sm:grid-cols-2 xl:grid-cols-4">
         {reasons.map((reason) => (
-          <article
-            key={reason.title}
-            className="rounded-xl border border-[var(--border)] bg-[var(--surface-nav-panel)] p-5"
-          >
-            <h3 className="text-base font-semibold text-foreground">{reason.title}</h3>
-            <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">{reason.description}</p>
-          </article>
+          <li key={reason.title} className="border-t border-[var(--border)] pt-6">
+            <h3 className="text-lg font-semibold tracking-tight text-foreground">{tidy(reason.title, 18)}</h3>
+            <p className="mt-2 text-[0.9375rem] leading-7 text-[var(--text-muted)]">{tidy(reason.description)}</p>
+          </li>
         ))}
-      </div>
+      </ul>
     </Section>
   );
 }

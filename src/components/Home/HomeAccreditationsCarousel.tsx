@@ -4,7 +4,7 @@ import Link from "next/link";
 const accreditationLogos = [
   {
     src: "/Excel/Accreditations/A0A1E93E-48AF-4DBB-9A9A-383C9CC7D0CA-scaled-1-1920x1106.jpg.webp",
-    alt: "BM TRADA accreditation",
+    alt: "FIRAS, Warrington Certification, UKAS accredited",
   },
   { src: "/Excel/Accreditations/chas-1024x537-1.png.webp", alt: "CHAS accreditation" },
   {
@@ -13,17 +13,17 @@ const accreditationLogos = [
   },
   {
     src: "/Excel/Accreditations/Excel_FireFDInsp_UKASlogo.png.webp",
-    alt: "UKAS fire door inspection accreditation",
+    alt: "Bluesky certified fire door inspector, UKAS accredited",
   },
   {
     src: "/Excel/Accreditations/image001.jpg@01D93BB8.A719FDE0.jpg.webp",
-    alt: "Additional accreditation logo",
+    alt: "Avetta",
   },
   { src: "/Excel/Accreditations/Injectaclad.webp", alt: "Injectaclad approved installer" },
   { src: "/Excel/Accreditations/smas-300x105-1.jpg.webp", alt: "SMAS accreditation" },
   {
     src: "/Excel/Accreditations/UKAS-Q-Mark-Fire-Door-Maintenance-Colour-clear-UKAS71.jpg.webp",
-    alt: "UKAS Q-Mark fire door maintenance",
+    alt: "BM TRADA Q-Mark fire door maintenance",
   },
 ];
 
@@ -31,7 +31,7 @@ export function HomeAccreditationsCarousel() {
   const duplicated = [...accreditationLogos, ...accreditationLogos];
 
   return (
-    <section className="pt-10 pb-20 md:pt-12 md:pb-24">
+    <section className="section-y section-last">
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="mb-3 flex items-center justify-between gap-4">
           <h3 className="text-foreground text-lg font-semibold tracking-tight md:text-xl">
@@ -41,7 +41,7 @@ export function HomeAccreditationsCarousel() {
             href="/accreditations"
             className="text-sm font-semibold text-brand-accent transition hover:opacity-80"
           >
-            What these mean →
+            What these&nbsp;mean&nbsp;→
           </Link>
         </div>
 

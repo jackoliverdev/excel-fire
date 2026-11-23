@@ -1,16 +1,19 @@
+import Link from "next/link";
 import { siteConfig } from "@/lib/site";
-
-const inputClass =
-  "w-full rounded-md border border-[var(--border)] bg-transparent px-4 py-2.5 text-sm text-foreground outline-none transition placeholder:text-[var(--text-muted)] focus:border-brand-accent";
+import { ContactForm } from "@/components/Contact/ContactForm";
+import { Breadcrumbs } from "@/components/Ui/Breadcrumbs";
+import { FaqList } from "@/components/Ui/FaqList";
+import { inlineLinkClass } from "@/components/Ui/buttons";
+import { tidy } from "@/lib/text";
 
 const nextSteps = [
   {
     title: "We come back to you",
-    detail: "A specialist — not a call centre — responds during business hours to understand your building.",
+    detail: "One of our specialists replies during business hours to understand your building.",
   },
   {
     title: "Survey or scope",
-    detail: "Where needed, we arrange a survey so the proposal is based on evidence, not guesswork.",
+    detail: "Where needed, we survey the building first so the proposal is based on what is there.",
   },
   {
     title: "Clear proposal",
@@ -22,8 +25,9 @@ export function ContactContent() {
   return (
     <section className="pt-12 pb-10 md:pt-16 md:pb-12">
       <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="max-w-2xl">
-          <p className="text-muted text-xs font-medium uppercase tracking-[0.16em]">Contact</p>
+        <Breadcrumbs items={[{ name: "Contact" }]} tone="light" />
+        <div className="mt-6 max-w-2xl">
+          <p className="eyebrow">Contact</p>
           <h1 className="text-foreground mt-2 text-3xl font-semibold tracking-tight md:text-5xl">
             Speak to a fire safety specialist
           </h1>
@@ -33,93 +37,18 @@ export function ContactContent() {
           </p>
         </div>
 
-        <div className="mt-10 grid items-start gap-4 lg:grid-cols-[1.5fr_1fr]">
+        <div className="mt-10 grid gap-4 lg:grid-cols-[1.5fr_1fr]">
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-nav-panel)] p-5 md:p-8">
             <h2 className="text-lg font-semibold text-foreground">Send an enquiry</h2>
-            <form className="mt-5 flex flex-col gap-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-semibold text-foreground">
-                    Full name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    autoComplete="name"
-                    className={inputClass}
-                    placeholder="Your full name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-semibold text-foreground">
-                    Phone number
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    autoComplete="tel"
-                    className={inputClass}
-                    placeholder="Your phone number"
-                  />
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-semibold text-foreground">
-                    Email address
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    autoComplete="email"
-                    className={inputClass}
-                    placeholder="you@example.com"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="service" className="text-sm font-semibold text-foreground">
-                    Service needed
-                  </label>
-                  <input
-                    id="service"
-                    name="service"
-                    type="text"
-                    className={inputClass}
-                    placeholder="e.g. Fire door inspection"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-semibold text-foreground">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className="min-h-[140px] w-full rounded-md border border-[var(--border)] bg-transparent px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-[var(--text-muted)] focus:border-brand-accent"
-                  placeholder="Tell us about your building and what you need."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center rounded-md bg-brand-accent px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 sm:w-auto"
-              >
-                Send enquiry
-              </button>
-            </form>
+            <p className="mt-1 text-sm leading-6 text-[var(--text-muted)]">
+              Fields marked (optional) can be left blank. We reply during business hours.
+            </p>
+            <div className="mt-5">
+              <ContactForm />
+            </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="flex flex-col gap-4">
             <div className="rounded-2xl bg-[#0b0f14] p-5 text-white md:p-6">
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
                 Prefer to talk?
@@ -151,7 +80,7 @@ export function ContactContent() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-nav-panel)] p-5 md:p-6">
+            <div className="flex flex-1 flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface-nav-panel)] p-5 md:p-6">
               <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
                 What happens next
               </h2>
@@ -165,13 +94,68 @@ export function ContactContent() {
                       {index + 1}
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-foreground">{step.title}</p>
-                      <p className="mt-0.5 text-sm leading-6 text-[var(--text-muted)]">{step.detail}</p>
+                      <p className="text-sm font-semibold text-foreground">{tidy(step.title, 18)}</p>
+                      <p className="mt-0.5 text-sm leading-6 text-[var(--text-muted)]">{tidy(step.detail)}</p>
                     </div>
                   </li>
                 ))}
               </ol>
+
+              <div className="mt-auto pt-6">
+                <div className="border-t border-[var(--border)] pt-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
+                  Independently accredited
+                </p>
+                <p className="mt-2 text-sm leading-6 text-foreground">
+                  FIRAS, BM TRADA Q-Mark, Bluesky FDIN, CHAS, Constructionline Gold and SMAS.
+                </p>
+                <Link href="/accreditations" className={`mt-3 ${inlineLinkClass}`}>
+                  What these cover →
+                </Link>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const contactFaqs = [
+  {
+    question: "How quickly can you respond to an enquiry?",
+    answer:
+      "We reply during business hours, usually the same or next working day, and confirm next steps based on your building and timescales.",
+  },
+  {
+    question: "Do you work on live construction sites or in occupied buildings?",
+    answer:
+      "Yes. Most of our work is in occupied homes, live venues and active sites, from the Royal Albert Hall to occupied tower blocks in Newham.",
+  },
+  {
+    question: "Can I request a quote for planned fire protection works?",
+    answer:
+      "Yes. Send the details through the form, with drawings or a schedule if you have them, and we will come back with next steps or arrange a survey.",
+  },
+  {
+    question: "Do you cover both residential and commercial properties?",
+    answer:
+      "Yes. We work for housing providers, councils, principal contractors, FM providers and commercial building owners across London, the South East and England.",
+  },
+];
+
+export function ContactFaqs() {
+  return (
+    <section className="section-y section-last">
+      <div className="mx-auto w-full max-w-7xl px-6">
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <p className="eyebrow">FAQs</p>
+            <h2 className="heading-2 mt-3">Before you get in touch</h2>
+          </div>
+          <div className="lg:col-span-8">
+            <FaqList faqs={contactFaqs} />
           </div>
         </div>
       </div>

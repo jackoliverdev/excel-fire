@@ -1,4 +1,5 @@
 import { Fragment, type ReactNode } from "react";
+import { noOrphan } from "@/lib/text";
 
 type LegalMarkdownProps = {
   markdown: string;
@@ -48,7 +49,7 @@ export function LegalMarkdown({ markdown }: LegalMarkdownProps) {
       blocks.push(
         <ul key={`ul-${key++}`} className="list-disc space-y-2 pl-5 text-[var(--text-muted)]">
           {listItems.map((item) => (
-            <li key={`li-${key++}`}>{item}</li>
+            <li key={`li-${key++}`}>{noOrphan(item)}</li>
           ))}
         </ul>,
       );
@@ -68,7 +69,7 @@ export function LegalMarkdown({ markdown }: LegalMarkdownProps) {
     if (paragraphLines.length > 0) {
       blocks.push(
         <p key={`p-${key++}`} className="leading-8 text-[var(--text-muted)]">
-          {paragraphLines.join(" ")}
+          {noOrphan(paragraphLines.join(" "), 32)}
         </p>,
       );
     }

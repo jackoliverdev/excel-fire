@@ -46,34 +46,38 @@ export function CookieBanner() {
   return (
     <div
       role="dialog"
-      aria-label="Cookie consent"
-      className="fixed inset-x-4 bottom-4 z-[130] mx-auto max-w-xl rounded-xl border border-[var(--border)] bg-[var(--surface-nav-panel)] p-5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)]"
+      aria-labelledby="cookie-title"
+      aria-describedby="cookie-desc"
+      className="fixed inset-x-3 bottom-3 z-[130] mx-auto max-w-4xl rounded-xl border border-[var(--border)] bg-[var(--surface-nav-panel)] px-4 py-3.5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)] md:bottom-5 md:px-6 md:py-4"
     >
-      <h2 className="text-sm font-semibold text-foreground">Cookies on this website</h2>
-      <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
-        We use essential cookies to make this site work. With your consent, we would also like to
-        use analytics cookies to understand how the site is used. Read our{" "}
-        <Link href="/legal/cookie-policy" className="font-semibold text-brand-accent hover:opacity-80">
-          cookie policy
-        </Link>{" "}
-        for details.
-      </p>
-
-      <div className="mt-4 flex flex-wrap gap-2.5">
-        <button
-          type="button"
-          onClick={() => handleConsent("accepted")}
-          className="inline-flex items-center justify-center rounded-md bg-brand-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
-        >
-          Accept all
-        </button>
-        <button
-          type="button"
-          onClick={() => handleConsent("declined")}
-          className="inline-flex items-center justify-center rounded-md border border-[var(--border)] px-5 py-2.5 text-sm font-semibold text-[var(--text-muted)] transition hover:border-brand-accent hover:text-foreground"
-        >
-          Essential only
-        </button>
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-8">
+        <div className="min-w-0">
+          <h2 id="cookie-title" className="text-sm font-semibold text-foreground">
+            Cookies
+          </h2>
+          <p id="cookie-desc" className="mt-0.5 text-[13px] leading-snug text-[var(--text-muted)] md:text-sm">
+            Essential cookies keep the site working. Optional analytics only run if you accept.{" "}
+            <Link href="/legal/cookie-policy" className="font-semibold text-brand-accent underline-offset-2 hover:underline">
+              Cookie policy
+            </Link>
+          </p>
+        </div>
+        <div className="grid shrink-0 grid-cols-2 gap-2 md:flex">
+          <button
+            type="button"
+            onClick={() => handleConsent("accepted")}
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-brand-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90 md:px-5"
+          >
+            Accept
+          </button>
+          <button
+            type="button"
+            onClick={() => handleConsent("declined")}
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-[var(--border)] px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-brand-accent md:px-5"
+          >
+            Essential only
+          </button>
+        </div>
       </div>
     </div>
   );

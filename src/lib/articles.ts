@@ -15,6 +15,7 @@ export type Article = {
   imageAlt: string;
   intro: string;
   sections: ArticleSection[];
+  metaTitle: string;
   metaDescription: string;
 };
 
@@ -30,12 +31,12 @@ export const articles: Article[] = [
     image: "/Excel/Services/site-firestopping-1.jpg",
     imageAlt: "Compliant fire stopping installation in a riser",
     intro:
-      "Passive fire protection is the part of a building's fire strategy that works silently, all day, every day. Unlike alarms and sprinklers, it needs no activation — but it only works if it is installed correctly, inspected regularly and maintained properly. Here is what every building manager and responsible person should know.",
+      "Passive fire protection is the part of a building's fire strategy that works silently, all day, every day. Unlike alarms and sprinklers, it needs no activation, but it only works if it is installed correctly, inspected regularly and maintained properly. Here is what every building manager and responsible person should know.",
     sections: [
       {
         heading: "What passive fire protection actually does",
         paragraphs: [
-          "Passive fire protection compartments a building using fire-resistance rated walls and floors. By dividing a building into smaller fire compartments, it prevents or slows the spread of fire and smoke from the room of origin to the rest of the building — limiting damage and giving occupants time to evacuate or reach an area of refuge.",
+          "Passive fire protection compartments a building using fire-resistance rated walls and floors. By dividing a building into smaller fire compartments, it prevents or slows the spread of fire and smoke from the room of origin to the rest of the building, limiting damage and giving occupants time to evacuate or reach an area of refuge.",
           "Typical passive measures include fire doors, fire stopping around service penetrations, cavity barriers, fire-rated boarding and structural fire protection to steelwork.",
         ],
       },
@@ -61,18 +62,19 @@ export const articles: Article[] = [
       {
         heading: "Getting it right",
         paragraphs: [
-          "Third-party accreditation matters. A FIRAS-accredited contractor works to audited standards, and digital evidence — photographic reporting, QR asset tagging and cloud dashboards — keeps your golden thread of building safety information complete. If you have not had your building's compartmentation inspected recently, a fire stopping inspection or validation survey is the practical first step.",
+          "Third-party accreditation matters. A FIRAS-accredited contractor works to audited standards, and digital evidence (photographic reporting, QR asset tagging and cloud dashboards) keeps your golden thread of building safety information complete. If you have not had your building's compartmentation inspected recently, a fire stopping inspection or validation survey is the practical first step.",
         ],
       },
     ],
     metaDescription:
-      "What building managers and responsible persons need to know about passive fire protection: compartmentation, fire stopping, legal duties and where compliance problems usually hide.",
+      "What building managers need to know about passive fire protection: compartmentation, fire stopping, legal duties and where problems usually hide.",
+    metaTitle: "Passive Fire Protection for Building Managers",
   },
   {
     slug: "fire-door-checks-regulation-10-explained",
     title: "Fire Door Checks: Regulation 10 of the Fire Safety (England) Regulations 2022 Explained",
     summary:
-      "Quarterly communal door checks, annual flat entrance door checks — what the law requires and how to stay compliant.",
+      "Quarterly communal door checks and annual flat entrance door checks: what the law requires and how to stay compliant.",
     publishedDate: "02/06/2026",
     publishedIso: "2026-06-02",
     readingTime: "4 min read",
@@ -88,25 +90,26 @@ export const articles: Article[] = [
         ],
         bullets: [
           "Undertake quarterly checks of all fire doors, including self-closing devices, in the common parts",
-          "Undertake — on a best endeavour basis — annual checks of all flat entrance doors, including self-closing devices, that lead onto a building's common parts",
+          "Undertake, on a best endeavour basis, annual checks of all flat entrance doors, including self-closing devices, that lead onto a building's common parts",
         ],
       },
       {
         heading: "What a proper check looks like",
         paragraphs: [
-          "A meaningful fire door check goes beyond a glance. It should confirm the construction of the door and the materials used, that hinges conform to BS EN 1935, that the self-closer is adequate and closes the door fully, that gaps do not exceed required specifications, that fire-rated glass carries the correct markings, and that smoke and heat seals are present and intact within the frame.",
+          "A meaningful fire door check goes beyond a glance. It should confirm the construction of the door and the materials used, that hinges conform to BS EN\u00a01935, that the self-closer is adequate and closes the door fully, that gaps do not exceed required specifications, that fire-rated glass carries the correct markings, and that smoke and heat seals are present and intact within the frame.",
         ],
       },
       {
         heading: "Recording your compliance",
         paragraphs: [
-          "Compliance you cannot evidence is compliance you cannot prove. QR asset tagging aligned with the golden thread regime, cloud-based dashboards and clear PDF reports with remedial schedules give responsible persons a defensible audit trail — and make the next quarterly check faster and cheaper.",
+          "Compliance you cannot evidence is compliance you cannot prove. QR asset tagging aligned with the golden thread regime, cloud-based dashboards and clear PDF reports with remedial schedules give responsible persons a defensible audit trail, and make the next quarterly check faster and cheaper.",
           "Where a check identifies defects, a UKAS third-party accredited maintenance contractor can often repair and certify the door rather than replace it, keeping costs proportionate.",
         ],
       },
     ],
     metaDescription:
-      "Regulation 10 of the Fire Safety (England) Regulations 2022 explained: quarterly communal fire door checks, annual flat entrance door checks and how responsible persons stay compliant.",
+      "Regulation 10 explained: quarterly communal fire door checks, annual flat entrance door checks, and how responsible persons stay compliant.",
+    metaTitle: "Regulation 10 Fire Door Checks Explained",
   },
   {
     slug: "compartmentation-surveys-live-buildings-checklist",
@@ -125,7 +128,7 @@ export const articles: Article[] = [
         heading: "Before works start",
         paragraphs: ["Good outcomes are set up before anyone lifts a tool:"],
         bullets: [
-          "Survey first — a fire stopping inspection or validation survey scopes the real workload, including loft voids and above suspended ceilings",
+          "Survey first: a fire stopping inspection or validation survey scopes the real workload, including loft voids and above suspended ceilings",
           "Sequence works by block, core or floor to keep disruption predictable",
           "Communicate with residents early: what is happening, when, and why it matters",
           "Confirm substrates, sizes and manufacturer-compliant installation details for every penetration type",
@@ -134,18 +137,19 @@ export const articles: Article[] = [
       {
         heading: "During delivery",
         paragraphs: [
-          "On live sites, tidiness and communication matter as much as technical quality. Dust sheets, daily clean-downs and respectful operatives keep complaints low and access co-operation high. Every installation should be photographed and logged as it is completed — retrofitting evidence later never works.",
+          "On live sites, tidiness and communication matter as much as technical quality. Dust sheets, daily clean-downs and respectful operatives keep complaints low and access co-operation high. Every installation should be photographed and logged as it is completed, retrofitting evidence later never works.",
         ],
       },
       {
         heading: "At handover",
         paragraphs: [
-          "The handover pack should include photographic evidence of every installation, product data and manufacturer specifications, and a clear record of any areas where access was not possible. Digital reporting platforms such as OneTrace make this a by-product of delivery rather than an afterthought — and give asset teams a golden thread record they can rely on at audit.",
+          "The handover pack should include photographic evidence of every installation, product data and manufacturer specifications, and a clear record of any areas where access was not possible. Digital reporting platforms such as OneTrace make this a by-product of delivery rather than an afterthought, and give asset teams a golden thread record they can rely on at audit.",
         ],
       },
     ],
     metaDescription:
-      "A practical checklist for delivering compartmentation and fire stopping works in occupied buildings: surveying, sequencing, resident communication and evidence at handover.",
+      "A practical checklist for compartmentation and fire stopping in occupied buildings: surveys, sequencing, resident communication and handover evidence.",
+    metaTitle: "Compartmentation in Live Buildings: Checklist",
   },
 ];
 

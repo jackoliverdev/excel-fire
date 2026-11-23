@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Raw client uploads (124 MB). Web-ready copies live in public/images.
+/docs/excelfire/wetransfer/

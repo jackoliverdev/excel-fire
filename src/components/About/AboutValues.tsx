@@ -1,36 +1,45 @@
+import Link from "next/link";
 import { Section } from "@/components/Ui/Section";
 import { SectionHeading } from "@/components/Ui/SectionHeading";
+import { tidy } from "@/lib/text";
 
+/** What makes the delivery different, each point backed by a named project. */
 const values = [
   {
-    title: "Expertise you can trust",
+    title: "Third-party certified",
     description:
-      "A well-established passive fire protection company offering a reliable, personal and diligent service. Our team includes UKAS third-party certified assessors, supervisors and technicians, ensuring every project is completed to the highest industry standards.",
+      "FIRAS, BM TRADA Q-Mark and Bluesky certification are audited by UKAS-accredited bodies. At CHP every one of 1,000+ doorsets left with its own FIRAS certificate.",
+    proof: { label: "CHP Chelmsford", href: "/projects/chp-chelmsford" },
   },
   {
-    title: "Accredited, industry-leading solutions",
+    title: "Labelled, logged and provable",
     description:
-      "A third-party accredited provider of passive fire protection services, utilising industry-leading products, materials and software to ensure compliance and safety at every level.",
+      "Every seal carries an install label and QR code tied to our installation log. Nearly 3,000 penetrations at the Royal Albert Hall are recorded by size, substrate and system.",
+    proof: { label: "Royal Albert Hall", href: "/projects/royal-albert-hall" },
   },
   {
-    title: "Comprehensive fire safety services",
+    title: "Residents treated as customers",
     description:
-      "From fire door inspections and compartmentation surveys to fire door and passive fire protection installations, we manage entire fire safety projects — providing end-to-end solutions tailored to your needs.",
+      "We act as Resident Liaison Officer on door programmes: booking every visit, fitting in one appointment, and at Bryanston & Harewood letting residents choose their door colour.",
+    proof: { label: "LB Ealing", href: "/projects/lb-ealing" },
   },
   {
-    title: "Integrity and professionalism",
+    title: "Built around live buildings",
     description:
-      "We operate with honesty, transparency and accountability, ensuring you receive clear, actionable advice with no compromises. Our team is responsive and professional, keeping you informed at every step.",
+      "Works phased around fixtures at Emirates Stadium, shows at the Royal Albert Hall and round-the-clock trains at Eurostar's Temple Mills depot.",
+    proof: { label: "Eurostar Temple Mills", href: "/projects/eurostar-temple-mills" },
   },
   {
-    title: "A life-saving mission",
+    title: "Fast when it is urgent",
     description:
-      "Fire safety is more than a job to us — it is our passion and responsibility. We are committed to saving lives and property through accurate reporting, consulting and advisory services.",
+      "On an emergency programme in Newham we surveyed and fixed 396 communal doorsets and the escape-route fire stopping across 44 floors, same day, floor by floor.",
+    proof: { label: "Newham towers", href: "/projects/david-lee-point-brasset-point-newham" },
   },
   {
-    title: "Evidence at every stage",
+    title: "Doors and electrics, one team",
     description:
-      "Digital reporting, QR asset tagging and cloud-based dashboards keep your golden thread of building safety information complete and audit-ready at all times.",
+      "Our electrical division, Excel Electrics, wires and interlinks the maglocks and hold-open devices on the doors we fit, so there is no gap between trades.",
+    proof: { label: "Emirates Stadium", href: "/projects/emirates-stadium" },
   },
 ];
 
@@ -38,22 +47,28 @@ export function AboutValues() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="Why engage with Excel Fire"
-        title="What sets our delivery apart"
-        description="Partner with Excel Fire and experience a proactive, professional and expert-driven approach to fire safety."
+        eyebrow="How we are different"
+        title="Six things clients can check for themselves"
+        description="No adjectives. Each point links to the project that proves it."
       />
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {values.map((value) => (
-          <article
-            key={value.title}
-            className="rounded-xl border border-[var(--border)] bg-[var(--surface-nav-panel)] p-5"
-          >
-            <h3 className="text-base font-semibold text-foreground">{value.title}</h3>
-            <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">{value.description}</p>
-          </article>
+      <ol className="grid gap-x-10 border-t border-[var(--border)] sm:grid-cols-2 lg:grid-cols-3">
+        {values.map((value, index) => (
+          <li key={value.title} className="flex flex-col border-b border-[var(--border)] py-8">
+            <span className="figure text-2xl text-brand-accent" aria-hidden>
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 className="mt-3 text-lg font-semibold tracking-tight text-foreground">{tidy(value.title, 18)}</h3>
+            <p className="mt-2 text-[0.9375rem] leading-7 text-[var(--text-muted)]">{tidy(value.description)}</p>
+            <Link
+              href={value.proof.href}
+              className="mt-auto pt-4 text-sm font-semibold text-foreground underline decoration-brand-accent decoration-2 underline-offset-4 transition hover:text-brand-accent"
+            >
+              {value.proof.label} →
+            </Link>
+          </li>
         ))}
-      </div>
+      </ol>
     </Section>
   );
 }

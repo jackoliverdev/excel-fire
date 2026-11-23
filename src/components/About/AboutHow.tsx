@@ -1,11 +1,12 @@
 import { Section } from "@/components/Ui/Section";
 import { SectionHeading } from "@/components/Ui/SectionHeading";
+import { NumberedSteps } from "@/components/Ui/NumberedSteps";
 
 const steps = [
   {
     title: "Listen first",
     detail:
-      "Every engagement starts with your building and your obligations — not a standard package. We scope what you actually need, and tell you plainly if you do not need something.",
+      "Every engagement starts with your building and your obligations, not a standard package. We scope what you actually need, and tell you plainly if you do not need something.",
   },
   {
     title: "Survey and evidence",
@@ -20,7 +21,7 @@ const steps = [
   {
     title: "Hand over properly",
     detail:
-      "Digital reports, certification and asset records at completion — your golden thread updated, your next audit already easier.",
+      "Digital reports, certification and asset records at completion. Your golden thread updated, your next audit already easier.",
   },
   {
     title: "Stay accountable",
@@ -31,29 +32,13 @@ const steps = [
 
 export function AboutHow() {
   return (
-    <Section>
+    <Section className="themed-muted-surface">
       <SectionHeading
         eyebrow="How we work"
-        title="The Excel Fire way"
-        description="The habits that turn one-off jobs into decade-long client relationships."
+        title="How every job runs"
+        description="From the first call to handover, and the phone still gets answered afterwards."
       />
-
-      <ol className="relative space-y-0 border-l border-[var(--border)] pl-8 md:pl-10">
-        {steps.map((step, index) => (
-          <li key={step.title} className="relative pb-8 last:pb-0">
-            <span
-              className="absolute -left-[45px] flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-nav-panel)] text-sm font-semibold text-brand-accent md:-left-[59px] md:h-10 md:w-10"
-              aria-hidden
-            >
-              {index + 1}
-            </span>
-            <h3 className="text-base font-semibold text-foreground md:text-lg">{step.title}</h3>
-            <p className="mt-1.5 max-w-[68ch] text-sm leading-7 text-[var(--text-muted)] md:text-base">
-              {step.detail}
-            </p>
-          </li>
-        ))}
-      </ol>
+      <NumberedSteps steps={steps} />
     </Section>
   );
 }

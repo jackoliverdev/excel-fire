@@ -8,4 +8,4 @@ export const outlineButtonClass =
   "btn-outline-brand inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold transition";
 
 export const inlineLinkClass =
-  "inline-flex w-fit text-sm font-semibold text-brand-accent transition hover:opacity-80";
+  "inline-flex w-fit items-center gap-1 whitespace-nowrap text-sm font-semibold text-brand-accent transition hover:opacity-80";
