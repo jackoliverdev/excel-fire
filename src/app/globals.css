@@ -1,4 +1,8 @@
+@layer theme, base, site-components, components, utilities;
 @import "tailwindcss";
+
+/* `dark:` follows the site's theme toggle (next-themes adds .dark to <html>), not the OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
@@ -36,6 +40,7 @@
   --color-surface-nav-panel: var(--surface-nav-panel);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-barlow-condensed);
 }
 
 body {
@@ -115,5 +120,178 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .accreditations-track {
     animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Design system: rhythm, type scale, labels, controls and motion.
+   One source of truth so every page shares the same spacing and voice.
+------------------------------------------------------------------- */
+:root {
+  --space-section: clamp(3.5rem, 2.4rem + 4.2vw, 6.5rem);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-padding-top: 6rem;
+}
+
+::selection {
+  background: var(--brand-accent);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@layer site-components {
+.section-y {
+  padding-block: calc(var(--space-section) / 2);
+}
+
+.section-last {
+  padding-bottom: var(--space-section);
+}
+
+/* Small uppercase label above headings. Barlow Condensed echoes the printed case study sheets. */
+.eyebrow {
+  font-family: var(--font-barlow-condensed), var(--font-geist-sans), sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--brand-accent);
+  flex-shrink: 0;
+}
+
+.heading-1 {
+  font-size: clamp(2.25rem, 1.55rem + 3vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.heading-2 {
+  font-size: clamp(1.625rem, 1.25rem + 1.4vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  color: var(--foreground);
+  text-wrap: balance;
+}
+
+.figure {
+  font-family: var(--font-barlow-condensed), var(--font-geist-sans), sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.lead {
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* No one-word last lines: headings and short labels balance, running text avoids orphans. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+summary,
+dt,
+figcaption,
+blockquote,
+legend,
+label {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd,
+td {
+  text-wrap: pretty;
+}
+
+.icon-button {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: border-color 150ms, color 150ms, background-color 150ms;
+}
+
+.icon-button:hover {
+  border-color: var(--foreground);
+}
+
+@keyframes testimonial-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.testimonial-progress {
+  animation: testimonial-progress linear forwards;
+}
+
+}
+
+/* Scroll reveal: CSS scroll-driven, so it costs no JavaScript. Browsers without support just show content. */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 180px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+  .testimonial-progress {
+    animation: none;
+    width: 100%;
   }
 }

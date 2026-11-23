@@ -22,6 +22,7 @@ export type Service = {
   heroDescription: string;
   cardImage: string;
   heroImage: string;
+  heroImageAlt: string;
   detailImage: string;
   detailImageAlt: string;
   keyPoints: string[];
@@ -39,13 +40,14 @@ export const services: Service[] = [
     slug: "passive-fire-protection",
     title: "Passive Fire Protection",
     navLabel: "Passive Fire Protection",
-    cardSummary: "FIRAS-accredited fire stopping and compartmentation delivered to the highest standard.",
+    cardSummary: "FIRAS-accredited fire stopping and compartmentation installed to tested details and logged.",
     heroDescription:
-      "Installing, assessing and improving passive fire protection standards using industry-leading products and expert knowledge, fully FIRAS accredited.",
-    cardImage: "/Excel/stopping.webp",
-    heroImage: "/Excel/Services/site-firestopping-2.jpg",
-    detailImage: "/Excel/Services/site-firestopping-1.jpg",
-    detailImageAlt: "Excel Fire operative completing compliant fire stopping works on site",
+      "Installing, assessing and improving passive fire protection standards using tested, certified products and expert knowledge, fully FIRAS accredited.",
+    cardImage: "/images/projects/printworks-tottenham/riser-after.webp",
+    heroImage: "/images/projects/printworks-tottenham/riser-after.webp",
+    detailImage: "/images/projects/printworks-tottenham/mock-up-wall-services.webp",
+    heroImageAlt: "Multi-service riser fire stopped with a batt system and an Excel Fire QR install label",
+    detailImageAlt: "The full-scale fire stopping mock-up wall Excel Fire built at Printworks, Tottenham",
     keyPoints: [
       "FIRAS-accredited fire stopping contractor",
       "Mastic application, fire batt, collars, wraps and fire-lined boarding",
@@ -66,7 +68,7 @@ export const services: Service[] = [
       {
         title: "Evidence as we go",
         detail:
-          "Every installation is photographed and logged in OneTrace at the point of completion — nothing retrofitted, nothing missed.",
+          "Every installation is photographed and logged in OneTrace at the point of completion, nothing retrofitted, nothing missed.",
       },
       {
         title: "Certified handover",
@@ -91,14 +93,14 @@ export const services: Service[] = [
       {
         heading: "How Excel Fire delivers",
         paragraphs: [
-          "Excel Fire are fully FIRAS accredited to deliver fire stopping services including mastic application, fire batt, collars, wraps, fire-lined boarding and more. We conduct every installation to the highest standard, coupling industry-leading products with our team's expert knowledge to ensure excellence at all stages.",
-          "As a FIRAS-accredited supplier, we hold both the technical and practical knowledge to carry out work that adheres to all industry standards and necessary compliances. Our workforce exercises acute attention to detail across all aspects of passive fire protection, and every project is compiled into an in-depth digital report using the OneTrace platform once works are complete.",
+          "Excel Fire are fully FIRAS accredited to deliver fire stopping services including mastic application, fire batt, collars, wraps, fire-lined boarding and more. We conduct every installation to the manufacturer's tested details, using certified products and FIRAS-trained operatives.",
+          "As a FIRAS-accredited supplier, we hold both the technical and practical knowledge to carry out work that adheres to all industry standards and necessary compliances. Every project is compiled into an in-depth digital report using the OneTrace platform once works are complete.",
         ],
       },
       {
         heading: "Reassurance and compliance",
         paragraphs: [
-          "As one of few FIRAS-accredited contractors operating in London and the South East, our aim is to give clients both the tools and the information they need to rest easy — knowing tenants, employees and occupants are safe while you remain covered and legally compliant.",
+          "As one of few FIRAS-accredited contractors operating in London and the South East, we give clients the evidence they need: a photographed, logged record of every seal, so you can show residents, insurers and the fire authority exactly what was done.",
         ],
       },
     ],
@@ -106,7 +108,7 @@ export const services: Service[] = [
       {
         question: "What is the difference between passive and active fire protection?",
         answer:
-          "Passive fire protection contains fire and smoke through the building fabric itself — compartment walls, floors, fire doors and fire stopping. Active fire protection detects and responds to fire, such as alarms, detection and suppression systems. A compliant building needs both.",
+          "Passive fire protection contains fire and smoke through the building fabric itself, compartment walls, floors, fire doors and fire stopping. Active fire protection detects and responds to fire, such as alarms, detection and suppression systems. A compliant building needs both.",
       },
       {
         question: "Are your operatives third-party accredited?",
@@ -119,9 +121,9 @@ export const services: Service[] = [
           "Every installation is photographed and logged through the OneTrace platform, producing an in-depth digital report you can retain as part of your golden thread of building safety information.",
       },
     ],
-    metaTitle: "Passive Fire Protection & Fire Stopping",
+    metaTitle: "Passive Fire Protection & Fire Stopping, London",
     metaDescription:
-      "FIRAS-accredited passive fire protection and fire stopping across London and the South East. Mastic, fire batt, collars, wraps and full digital reporting from Excel Fire Ltd.",
+      "FIRAS-accredited fire stopping and compartmentation across London and the South East. Every seal labelled, photographed and logged for your golden thread.",
   },
   {
     slug: "fire-door-installation",
@@ -129,14 +131,15 @@ export const services: Service[] = [
     navLabel: "Fire Door Installation",
     cardSummary: "FIRAS-certified installation of fully accredited timber fire door sets.",
     heroDescription:
-      "Our specialist teams assess, install and certify fully accredited fire doors for residential and commercial properties, in accordance with BS 8214.",
-    cardImage: "/Excel/doors.webp",
-    heroImage: "/Excel/Services/site-installation-2.jpg",
-    detailImage: "/Excel/Services/site-installation-1.jpg",
-    detailImageAlt: "Excel Fire engineer installing a certified fire door set",
+      "Our specialist teams assess, install and certify fully accredited fire doors for residential and commercial properties, in accordance with BS\u00a08214.",
+    cardImage: "/images/projects/bryanston-harewood-ealing/finished-red.webp",
+    heroImage: "/images/projects/bryanston-harewood-ealing/finished-red.webp",
+    detailImage: "/images/projects/lb-ealing/flat-36a-after.webp",
+    heroImageAlt: "Certified flat entrance doorset installed by Excel Fire for L&Q residents in Ealing",
+    detailImageAlt: "PAS\u00a024 FD30S flat entrance doorset with fire-rated vision panels, LB Ealing",
     keyPoints: [
-      "FIRAS-certified installer working to BS 8214",
-      "Door sets tested under BS 476-22 or BS 476-31",
+      "FIRAS-certified installer working to BS\u00a08214",
+      "Door sets tested under BS\u00a0476-22 or BS\u00a0476-31",
       "Full documentation from accredited third-party manufacturers",
       "Methodical, photographic installation reports on every door",
     ],
@@ -152,7 +155,7 @@ export const services: Service[] = [
           "Door sets arrive complete with tested ironmongery, framing and third-party manufacturer documentation.",
       },
       {
-        title: "Install to BS 8214",
+        title: "Install to BS\u00a08214",
         detail:
           "FIRAS-certified teams fit each door to the standard and the manufacturer's guidance, with clean, respectful working on occupied sites.",
       },
@@ -162,7 +165,7 @@ export const services: Service[] = [
           "A FIRAS supervisor signs off every set with a methodical, photographic installation report.",
       },
     ],
-    standards: ["FIRAS certified", "BS 8214 installation", "BS 476-22 / BS 476-31 tested", "Third-party documentation"],
+    standards: ["FIRAS certified", "BS\u00a08214 installation", "BS\u00a0476-22 / BS\u00a0476-31 tested", "Third-party documentation"],
     deliverables: [
       "Photographic installation report per door set",
       "FIRAS supervisor certification",
@@ -173,8 +176,8 @@ export const services: Service[] = [
       {
         heading: "Certified installation",
         paragraphs: [
-          "As a FIRAS-certified installer, Excel Fire's competent and talented team fits and installs timber fire doors in accordance with BS 8214 and manufacturers' guidance.",
-          "Each door set comes equipped with ironmongery, framing and additional items that have been subject to relevant regulatory testing under BS 476-22 or BS 476-31. Every set is provided along with the necessary documentation and legislation from accredited third-party manufacturers.",
+          "As a FIRAS-certified installer, Excel Fire's competent and talented team fits and installs timber fire doors in accordance with BS\u00a08214 and manufacturers' guidance.",
+          "Each door set comes equipped with ironmongery, framing and additional items that have been subject to relevant regulatory testing under BS\u00a0476-22 or BS\u00a0476-31. Every set is provided along with the necessary documentation and legislation from accredited third-party manufacturers.",
           "All door sets installed are certified by our FIRAS supervisors with a methodical, photographic and detailed installation report.",
         ],
       },
@@ -182,13 +185,13 @@ export const services: Service[] = [
         heading: "Door sets we install",
         paragraphs: ["Excel Fire installs the full range of certified fire door sets, including:"],
         bullets: [
-          "FD30 — fire door, 30-minute resistance",
-          "FD30s — fire and smoke door, 30-minute resistance",
-          "FD60 — fire door, 60-minute resistance",
-          "FD60s — fire and smoke door, 60-minute resistance",
-          "FD30s SC&VP — fire and smoke door with vision panel and self-closing device, 30-minute resistance (usually communal)",
-          "FD60s SC&VP — fire and smoke door with vision panel and self-closing device, 60-minute resistance (usually communal)",
-          "FEDs — front/flat entrance doors, most commonly FD30s",
+          "FD30: fire door, 30-minute resistance",
+          "FD30s: fire and smoke door, 30-minute resistance",
+          "FD60: fire door, 60-minute resistance",
+          "FD60s: fire and smoke door, 60-minute resistance",
+          "FD30s SC&VP: fire and smoke door with vision panel and self-closing device, 30-minute resistance (usually communal)",
+          "FD60s SC&VP: fire and smoke door with vision panel and self-closing device, 60-minute resistance (usually communal)",
+          "FEDs: front/flat entrance doors, most commonly FD30s",
         ],
       },
       {
@@ -215,9 +218,9 @@ export const services: Service[] = [
           "Absolutely. Our teams regularly work in occupied residential blocks and live commercial sites, planning works to minimise disruption to residents and building users.",
       },
     ],
-    metaTitle: "Fire Door Installation",
+    metaTitle: "Fire Door Installation, FIRAS Certified",
     metaDescription:
-      "FIRAS-certified fire door installation to BS 8214 for residential and commercial properties. FD30, FD60 and flat entrance door sets supplied, installed and certified by Excel Fire Ltd.",
+      "Certified fire door and flat entrance door installation to BS\u00a08214. 1,500+ FD30S doorsets fitted for councils and housing providers, each certified.",
   },
   {
     slug: "fire-door-maintenance",
@@ -225,11 +228,12 @@ export const services: Service[] = [
     navLabel: "Fire Door Maintenance",
     cardSummary: "UKAS third-party accredited maintenance and repair of fire rated door sets.",
     heroDescription:
-      "Accredited, compliant maintenance works to fire rated door sets — bringing existing doors up to standard with certified repairs and a full works log.",
-    cardImage: "/Excel/doors.webp",
-    heroImage: "/Excel/Services/site-installation-3.jpg",
-    detailImage: "/Excel/Services/site-installation-2.jpg",
-    detailImageAlt: "Excel Fire operative carrying out fire door maintenance works",
+      "Certified maintenance to existing fire doorsets, bringing existing doors up to standard with certified repairs and a full works log.",
+    cardImage: "/images/projects/eurostar-temple-mills/glazed-doorset-after.webp",
+    heroImage: "/images/projects/eurostar-temple-mills/glazed-doorset-after.webp",
+    detailImage: "/images/projects/emirates-stadium/back-of-house-after.webp",
+    heroImageAlt: "Certified glazed fire doorset at Eurostar Temple Mills after Excel Fire works",
+    detailImageAlt: "Metal fire doorset with keypad access and overhead closers at Emirates Stadium",
     keyPoints: [
       "UKAS third-party accredited maintenance capability",
       "Detailed schedule of works following inspection",
@@ -245,7 +249,7 @@ export const services: Service[] = [
       {
         title: "Schedule of works",
         detail:
-          "A fastidious, priced schedule sets out exactly what each door needs — easing, seals, ironmongery, repairs.",
+          "A fastidious, priced schedule sets out exactly what each door needs, easing, seals, ironmongery, repairs.",
       },
       {
         title: "Certified remediation",
@@ -276,7 +280,7 @@ export const services: Service[] = [
       {
         heading: "Why maintenance matters",
         paragraphs: [
-          "Regulation 10 of the Fire Safety (England) Regulations 2022 made it a legal requirement from 23 January 2023 for responsible persons of multi-occupied residential buildings in England with storeys over 11 metres to undertake quarterly checks of all fire doors in common parts, and annual checks — on a best endeavour basis — of all flat entrance doors that open onto common parts.",
+          "Regulation 10 of the Fire Safety (England) Regulations 2022 made it a legal requirement from 23 January 2023 for responsible persons of multi-occupied residential buildings in England with storeys over 11 metres to undertake quarterly checks of all fire doors in common parts, and annual checks, on a best endeavour basis, of all flat entrance doors that open onto common parts.",
           "A well-managed maintenance programme keeps your doors compliant between inspections and avoids the cost of unnecessary full replacements.",
         ],
       },
@@ -298,9 +302,9 @@ export const services: Service[] = [
           "Yes. All maintenance works are certified under our UKAS third-party accreditation and documented with a full works log.",
       },
     ],
-    metaTitle: "Fire Door Maintenance",
+    metaTitle: "Fire Door Maintenance & Repairs",
     metaDescription:
-      "UKAS third-party accredited fire door maintenance and repair. Certified easing, adjusting, ironmongery replacement and remedial works with full documentation from Excel Fire Ltd.",
+      "BM TRADA Q-Mark fire door maintenance: closers, seals, gaps and ironmongery put right, with a certified record for every door. London and the South East.",
   },
   {
     slug: "fire-door-inspections",
@@ -309,12 +313,13 @@ export const services: Service[] = [
     cardSummary: "Evidence-led inspections with QR asset tagging and clear remedial reporting.",
     heroDescription:
       "We assess existing fire doors and determine if they are compliant and certified, with thorough photographic reporting and QR asset tagging on every door set.",
-    cardImage: "/Excel/surveys.webp",
-    heroImage: "/Excel/Services/site-installation-1.jpg",
-    detailImage: "/Excel/Services/site-installation-3.jpg",
-    detailImageAlt: "Excel Fire inspector assessing an existing fire door for compliance",
+    cardImage: "/images/projects/bryanston-harewood-ealing/finished-blue.webp",
+    heroImage: "/images/projects/eurostar-temple-mills/canteen-after.webp",
+    detailImage: "/images/projects/david-lee-point-brasset-point-newham/tower.webp",
+    heroImageAlt: "Fire doorset with vision panels and overpanel at Eurostar Temple Mills",
+    detailImageAlt: "22-storey residential tower in Newham where Excel Fire surveyed 396 communal doorsets",
     keyPoints: [
-      "Compliance surveys to BS 8214, BS 476-22 and BS 476-31",
+      "Compliance surveys to BS\u00a08214, BS\u00a0476-22 and BS\u00a0476-31",
       "QR asset tagging in line with the golden thread regime",
       "Cloud-based dashboard access to all inspections",
       "Easy-to-navigate PDF reports with remedial schedules",
@@ -323,7 +328,7 @@ export const services: Service[] = [
       {
         title: "Plan the inspection",
         detail:
-          "We agree scope and access with your building team — communal doors, flat entrance doors, or a full estate programme.",
+          "We agree scope and access with your building team, communal doors, flat entrance doors, or a full estate programme.",
       },
       {
         title: "Inspect every element",
@@ -341,7 +346,7 @@ export const services: Service[] = [
           "You receive an easy-to-navigate PDF report with a schedule of remedial works for each door set.",
       },
     ],
-    standards: ["BS 8214 assessment", "BS EN 1935 ironmongery checks", "Golden thread QR tagging", "Regulation 10 compliant"],
+    standards: ["BS\u00a08214 assessment", "BS EN\u00a01935 ironmongery checks", "Golden thread QR tagging", "Regulation 10 compliant"],
     deliverables: [
       "PDF inspection report per door set",
       "QR asset tags linked to the cloud dashboard",
@@ -352,12 +357,12 @@ export const services: Service[] = [
       {
         heading: "What we inspect",
         paragraphs: [
-          "Our fire door inspections look at existing fire doors and determine whether they are compliant and certified. Each survey establishes whether doors can be improved under BS 8214 or should be replaced with a certified fire door set tested to BS 476-22 or BS 476-31.",
+          "Our fire door inspections look at existing fire doors and determine whether they are compliant and certified. Each survey establishes whether doors can be improved under BS\u00a08214 or should be replaced with a certified fire door set tested to BS\u00a0476-22 or BS\u00a0476-31.",
           "We photograph and report on every critical element of the door set:",
         ],
         bullets: [
           "Construction of the door and the materials used",
-          "Whether hinges conform to BS EN 1935",
+          "Whether hinges conform to BS EN\u00a01935",
           "Whether the self-closer is adequate and conforms to standards",
           "Whether gaps exceed the required specifications",
           "Whether the overall installation of the door set is compliant",
@@ -369,7 +374,7 @@ export const services: Service[] = [
         heading: "Golden thread reporting",
         paragraphs: [
           "All door sets inspected by Excel Fire are QR asset tagged in line with the golden thread regime and linked to our cloud-based dashboard, giving clients access to all inspections undertaken.",
-          "Once completed, an easy-to-navigate PDF report is issued along with a schedule of remedial works for each door set — giving you a clear, prioritised path to full compliance.",
+          "Once completed, an easy-to-navigate PDF report is issued along with a schedule of remedial works for each door set, giving you a clear, prioritised path to full compliance.",
         ],
       },
     ],
@@ -390,9 +395,9 @@ export const services: Service[] = [
           "Yes. We are UKAS third-party accredited for fire door maintenance and FIRAS certified for installation, so we can complete any remediation or replacement identified in the report.",
       },
     ],
-    metaTitle: "Fire Door Inspections",
+    metaTitle: "Fire Door Inspections & Regulation 10 Checks",
     metaDescription:
-      "Professional fire door inspections with photographic reporting, QR asset tagging and remedial schedules. UKAS-accredited inspection capability from Excel Fire Ltd.",
+      "UKAS-certified fire door inspections for Regulation 10 and FRA actions. Photo reports, QR asset tags and a priced remedial schedule for every door.",
   },
   {
     slug: "fire-stopping-inspections",
@@ -401,14 +406,15 @@ export const services: Service[] = [
     cardSummary: "Compartmentation assurance from Level 3 accredited, UKAS-certified inspectors.",
     heroDescription:
       "Ensuring your building meets the required compartmentation between fire separating walls and ceilings, with photographic evidence and compliant recommendations.",
-    cardImage: "/Excel/stopping.webp",
-    heroImage: "/Excel/Services/site-firestopping-3.jpg",
-    detailImage: "/Excel/Services/site-firestopping-4.jpg",
-    detailImageAlt: "Excel Fire inspector reviewing compartmentation and fire stopping works",
+    cardImage: "/images/projects/printworks-tottenham/duct-after.webp",
+    heroImage: "/images/projects/printworks-tottenham/duct-after.webp",
+    detailImage: "/Excel/Services/site-firestopping-3.jpg",
+    heroImageAlt: "Ductwork penetration sealed and labelled with an Excel Fire QR install label",
+    detailImageAlt: "Fire stopped service penetrations above a doorway",
     keyPoints: [
       "Level 3 accredited and UKAS third-party certified inspectors",
       "M&E penetrations and structural fire protection identified",
-      "Photographic evidence with sizes, substrates and non-conformities",
+      "Photographic evidence with sizes, substrates and nonconformities",
       "Hard-to-reach areas inspected, including loft voids and suspended ceilings",
     ],
     process: [
@@ -420,7 +426,7 @@ export const services: Service[] = [
       {
         title: "Inspect and identify",
         detail:
-          "Level 3 accredited inspectors identify M&E penetrations, structural protection gaps and irregularities — including loft voids and above suspended ceilings.",
+          "Level 3 accredited inspectors identify M&E penetrations, structural protection gaps and irregularities, including loft voids and above suspended ceilings.",
       },
       {
         title: "Record everything",
@@ -452,7 +458,7 @@ export const services: Service[] = [
         heading: "Detailed reporting",
         paragraphs: [
           "Within our reports, photographic evidence is provided along with access issues, substrates, sizes and measurements, non-conformities and recommended compliant installations in accordance with the manufacturer's specifications and guidelines.",
-          "Even in hard-to-reach places such as loft voids or above suspended ceilings, our teams can inspect these areas for you — so nothing is missed.",
+          "Even in hard-to-reach places such as loft voids or above suspended ceilings, our teams can inspect these areas for you, so nothing is missed.",
         ],
       },
     ],
@@ -465,7 +471,7 @@ export const services: Service[] = [
       {
         question: "Do you inspect concealed areas?",
         answer:
-          "Yes. We routinely inspect loft voids, risers and areas above suspended ceilings — the places where compartmentation breaches most often go unnoticed.",
+          "Yes. We routinely inspect loft voids, risers and areas above suspended ceilings, the places where compartmentation breaches most often go unnoticed.",
       },
       {
         question: "Can you complete the remedial fire stopping works?",
@@ -473,9 +479,9 @@ export const services: Service[] = [
           "Yes. As a FIRAS-accredited fire stopping contractor we can deliver the compliant remediation identified in the inspection, with full digital evidence of completed works.",
       },
     ],
-    metaTitle: "Fire Stopping Inspections & Compartmentation Surveys",
+    metaTitle: "Fire Stopping Inspections & Surveys",
     metaDescription:
-      "Fire stopping inspections and compartmentation surveys from Level 3 accredited, UKAS-certified inspectors. Photographic reporting and compliant remediation from Excel Fire Ltd.",
+      "Compartmentation and fire stopping inspections by UKAS-certified inspectors, including risers, lofts and ceiling voids. Clear photo reports and remedial scope.",
   },
   {
     slug: "validation-surveys",
@@ -484,21 +490,22 @@ export const services: Service[] = [
     cardSummary: "Non-intrusive assessments of communal areas with a broad compliance overview.",
     heroDescription:
       "A flexible, non-intrusive assessment of communal areas throughout your building, confirming compliance and outlining any further remedial works needed.",
-    cardImage: "/Excel/surveys.webp",
-    heroImage: "/Excel/Services/site-firestopping-1.jpg",
-    detailImage: "/Excel/Services/site-firestopping-3.jpg",
-    detailImageAlt: "Excel Fire surveyor carrying out a validation survey of communal areas",
+    cardImage: "/images/projects/david-lee-point-brasset-point-newham/both-blocks.webp",
+    heroImage: "/images/projects/david-lee-point-brasset-point-newham/both-blocks.webp",
+    detailImage: "/Excel/Services/site-firestopping-4.jpg",
+    heroImageAlt: "David Lee Point and Brasset Point, two occupied high-rise blocks in Newham",
+    detailImageAlt: "Fire stopping around cable trays and pipework in a service void",
     keyPoints: [
       "Non-intrusive assessment of communal areas",
       "Fire doors, passive fire protection and compartmentation reviewed",
-      "Flexible scope tailored to your building and needs",
+      "Scope set by your building: one block, an estate or a problem area",
       "Clear overview of any further remedial works required",
     ],
     process: [
       {
         title: "Agree the scope",
         detail:
-          "We tailor the survey to your building and your questions — a single block, a whole estate, or targeted problem areas.",
+          "We tailor the survey to your building and your questions, a single block, a whole estate, or targeted problem areas.",
       },
       {
         title: "Non-intrusive assessment",
@@ -513,7 +520,7 @@ export const services: Service[] = [
       {
         title: "Practical report",
         detail:
-          "A prioritised overview of compliance status and remedial works — ideal for budget and works programme planning.",
+          "A prioritised overview of compliance status and remedial works, ideal for budget and works programme planning.",
       },
     ],
     standards: ["Non-intrusive methodology", "Communal area focus", "Prioritised reporting", "Budget-planning ready"],
@@ -528,14 +535,14 @@ export const services: Service[] = [
         heading: "What is a validation survey?",
         paragraphs: [
           "A validation survey is a non-intrusive assessment of communal areas throughout the building, designed to confirm their compliance whilst giving a broad overview of any further remedial works needed.",
-          "The survey consists of varied inspections — from fire doors and passive fire protection to the generic compartmentation of the building.",
+          "The survey consists of varied inspections, from fire doors and passive fire protection to the generic compartmentation of the building.",
         ],
       },
       {
         heading: "Flexible and practical",
         paragraphs: [
           "Not to be confused with a fire risk assessment, fire validations are a flexible way to get a hold on what needs to be done. We work to your needs, including providing information regarding electrical, gas or plumbing hazards that will require further assessment from a third party.",
-          "The result is a practical, prioritised picture of your building's fire safety position — ideal for asset teams planning budgets and works programmes.",
+          "The result is a practical, prioritised picture of your building's fire safety position, ideal for asset teams planning budgets and works programmes.",
         ],
       },
     ],
@@ -543,7 +550,7 @@ export const services: Service[] = [
       {
         question: "How is a validation survey different from a fire risk assessment?",
         answer:
-          "A fire risk assessment is a formal legal assessment of fire risk under the Regulatory Reform (Fire Safety) Order 2005. A validation survey is a flexible, non-intrusive check of communal areas that confirms compliance and highlights remedial works — a practical tool for planning rather than a statutory document.",
+          "A fire risk assessment is a formal legal assessment of fire risk under the Regulatory Reform (Fire Safety) Order 2005. A validation survey is a flexible, non-intrusive check of communal areas that confirms compliance and highlights remedial works, a practical tool for planning rather than a statutory document.",
       },
       {
         question: "Is a validation survey disruptive to residents?",
@@ -556,9 +563,9 @@ export const services: Service[] = [
           "You receive a clear report outlining compliance status and any recommended remedial works. Excel Fire can then price and deliver those works through our accredited installation and maintenance teams.",
       },
     ],
-    metaTitle: "Validation Surveys",
+    metaTitle: "Fire Safety Validation Surveys",
     metaDescription:
-      "Non-intrusive validation surveys of communal areas covering fire doors, passive fire protection and compartmentation. Practical compliance reporting from Excel Fire Ltd.",
+      "Non-intrusive validation surveys of communal areas: fire doors, fire stopping and compartmentation reviewed, with a prioritised report for planning works.",
   },
   {
     slug: "injectaclad",
@@ -566,11 +573,12 @@ export const services: Service[] = [
     navLabel: "Injectaclad",
     cardSummary: "Specialist cavity barrier reinstatement with minimal disruption on live sites.",
     heroDescription:
-      "Reinstating the fire resistance performance of wall and floor construction cavity details using the specialist Injectaclad system — with minimal disruption.",
-    cardImage: "/Excel/interclad.webp",
-    heroImage: "/Excel/Services/site-firestopping-4.jpg",
+      "Reinstating the fire resistance performance of wall and floor construction cavity details using the specialist Injectaclad system, with minimal disruption.",
+    cardImage: "/images/projects/david-lee-point-brasset-point-newham/tower-22-floors.webp",
+    heroImage: "/images/projects/david-lee-point-brasset-point-newham/tower-22-floors.webp",
     detailImage: "/Excel/Services/site-firestopping-2.jpg",
-    detailImageAlt: "Injectaclad cavity barrier installation by Excel Fire",
+    heroImageAlt: "High-rise residential tower, the type of building where cavity barrier remediation is needed",
+    detailImageAlt: "Fire stopping beneath a run of sprinkler pipework",
     keyPoints: [
       "Approved Injectaclad installer",
       "Reinstates fire resistance of cavity details",
@@ -591,7 +599,7 @@ export const services: Service[] = [
       {
         title: "Inject and seal",
         detail:
-          "The graphite-based system is injected to reinstate the fire resistance of the cavity — residents typically stay in place throughout.",
+          "The graphite-based system is injected to reinstate the fire resistance of the cavity, residents typically stay in place throughout.",
       },
       {
         title: "Evidence and certify",
@@ -611,11 +619,11 @@ export const services: Service[] = [
         heading: "What is Injectaclad?",
         paragraphs: [
           "Injectaclad is a specialist system used to reinstate the fire resistance performance of wall and floor construction cavity details. It provides an injected, graphite-based solution that expands under heat to seal cavities and restore compartmentation.",
-          "It is particularly effective where cavity barriers are missing, defective or damaged — a common issue identified in external wall and compartmentation surveys.",
+          "It is particularly effective where cavity barriers are missing, defective or damaged, a common issue identified in external wall and compartmentation surveys.",
         ],
       },
       {
-        heading: "Minimal disruption remediation",
+        heading: "Remediation with minimal disruption",
         paragraphs: [
           "Because Injectaclad is installed via injection, remediation can be carried out with minimal opening-up works and minimal disruption to residents and building users. This makes it ideally suited to live sites and occupied buildings where traditional remediation would be intrusive and costly.",
           "As an approved installer, Excel Fire delivers Injectaclad works with full photographic evidence and compliant documentation for your building safety records.",
@@ -626,7 +634,7 @@ export const services: Service[] = [
       {
         question: "Where is Injectaclad used?",
         answer:
-          "Injectaclad is used to reinstate fire resistance in construction cavities — typically where cavity barriers in external walls, compartment walls or floor details are missing, damaged or incorrectly installed.",
+          "Injectaclad is used to reinstate fire resistance in construction cavities, typically where cavity barriers in external walls, compartment walls or floor details are missing, damaged or incorrectly installed.",
       },
       {
         question: "Is the building disrupted during installation?",
@@ -641,7 +649,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Injectaclad Cavity Barrier Remediation",
     metaDescription:
-      "Approved Injectaclad installer reinstating cavity barrier fire resistance with minimal disruption. Specialist remediation for live and occupied buildings from Excel Fire Ltd.",
+      "Approved Injectaclad installer. We reinstate missing or defective cavity barriers in occupied buildings, usually with residents staying in place.",
   },
   {
     slug: "active-fire-systems",
@@ -649,11 +657,12 @@ export const services: Service[] = [
     navLabel: "Active Fire Systems",
     cardSummary: "Detection and alarm support from specification through to ongoing compliance.",
     heroDescription:
-      "A full-service approach to active fire systems — from specification and installation through to ongoing maintenance and compliance.",
-    cardImage: "/Excel/active.webp",
-    heroImage: "/Excel/london.jpg",
-    detailImage: "/Excel/active.webp",
-    detailImageAlt: "Active fire detection and alarm system installation",
+      "A full-service approach to active fire systems, from specification and installation through to ongoing maintenance and compliance.",
+    cardImage: "/images/projects/emirates-stadium/concourse-e2-after.webp",
+    heroImage: "/images/projects/emirates-stadium/concourse-e2-after.webp",
+    detailImage: "/images/projects/emirates-stadium/stadium.webp",
+    heroImageAlt: "Alarm-interlinked glazed fire doorset at Emirates Stadium",
+    detailImageAlt: "Emirates Stadium, where Excel Electrics interlinked every door device with the fire alarm",
     keyPoints: [
       "Specification, installation, maintenance and compliance",
       "Fire detection and alarm system support",
@@ -679,7 +688,7 @@ export const services: Service[] = [
       {
         title: "Stay compliant",
         detail:
-          "Ongoing compliance support and clear records — one accountable partner across active and passive fire safety.",
+          "Ongoing compliance support and clear records, one accountable partner across active and passive fire safety.",
       },
     ],
     standards: ["British Standards specification", "Full lifecycle support", "Planned maintenance", "Combined active and passive delivery"],
@@ -694,13 +703,13 @@ export const services: Service[] = [
         heading: "Complete active fire cover",
         paragraphs: [
           "Excel Fire provides a full-service approach to active fire systems, supporting clients from initial specification and design through installation, commissioning, ongoing maintenance and compliance.",
-          "Active systems — detection, alarms and emergency lighting — are the early-warning half of a compliant building. Combined with our passive fire protection services, we can act as one accountable partner across your entire fire safety strategy.",
+          "Active systems (detection, alarms and emergency lighting) are the early-warning half of a compliant building. Combined with our passive fire protection services, we can act as one accountable partner across your entire fire safety strategy.",
         ],
       },
       {
         heading: "Designed around your building",
         paragraphs: [
-          "Every building is different. We work with responsible persons, building managers and contractors to specify systems that meet the relevant British Standards and the practical needs of the building and its occupants — then keep them tested, maintained and audit-ready.",
+          "Every building is different. We work with responsible persons, building managers and contractors to specify systems that meet the relevant British Standards and the practical needs of the building and its occupants, then keep them tested, maintained and audit-ready.",
         ],
       },
     ],
@@ -713,7 +722,7 @@ export const services: Service[] = [
       {
         question: "Can you manage both active and passive fire protection?",
         answer:
-          "Yes — that is one of our key strengths. Excel Fire delivers passive fire protection, fire doors and active systems as a single accountable partner, simplifying compliance for responsible persons.",
+          "Yes. That is one of our key strengths. Excel Fire delivers passive fire protection, fire doors and active systems as a single accountable partner, simplifying compliance for responsible persons.",
       },
       {
         question: "Do you offer ongoing maintenance contracts?",
@@ -721,9 +730,9 @@ export const services: Service[] = [
           "Yes. We provide planned maintenance and compliance support to keep your active fire systems tested, certified and audit-ready year-round.",
       },
     ],
-    metaTitle: "Active Fire Systems",
+    metaTitle: "Active Fire Systems & Door Interlinks",
     metaDescription:
-      "Full-service active fire system support — specification, installation, maintenance and compliance for fire detection and alarm systems from Excel Fire Ltd.",
+      "Fire alarm interlinks, maglocks and hold-open devices installed with our fire doors by Excel Electrics, as at Emirates Stadium. One accountable contractor.",
   },
 ];
 

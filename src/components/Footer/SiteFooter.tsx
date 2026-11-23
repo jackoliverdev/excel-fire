@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { LogoVideo } from "@/components/Brand/LogoVideo";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, companiesHouseUrl } from "@/lib/site";
+import { tidy } from "@/lib/text";
 
 const serviceLinks = [
   { label: "Passive Fire Protection", href: "/services/passive-fire-protection" },
@@ -9,13 +10,15 @@ const serviceLinks = [
   { label: "Fire Door Inspections", href: "/services/fire-door-inspections" },
   { label: "Fire Stopping Inspections", href: "/services/fire-stopping-inspections" },
   { label: "Injectaclad", href: "/services/injectaclad" },
+  { label: "Active Fire Systems", href: "/services/active-fire-systems" },
   { label: "All Services", href: "/services" },
 ];
 
 const companyLinks = [
   { label: "About Us", href: "/about-us" },
+  { label: "Projects & Case Studies", href: "/projects" },
   { label: "Sectors", href: "/sectors" },
-  { label: "Projects & Clients", href: "/projects" },
+  { label: "Excel Electrics", href: "/excel-electrics" },
   { label: "Accreditations", href: "/accreditations" },
   { label: "Areas We Cover", href: "/areas-we-cover" },
   { label: "Insights", href: "/articles" },
@@ -45,18 +48,17 @@ const footerLinkClass = "text-sm text-slate-400 transition hover:text-brand-acce
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#05070b] text-slate-200">
-      <div className="mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
+    <footer className="border-t border-white/10 bg-black text-slate-200">
+      <div className="w-full px-6 py-12 md:px-8 md:py-16 xl:px-12 2xl:px-16">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="space-y-5">
             <Link href="/" aria-label="Excel Fire home" className="inline-block">
-              <span className="block h-12 w-[180px] overflow-hidden">
-                <LogoVideo className="h-full w-full scale-[1.05] object-cover object-center" />
-              </span>
+              <LogoVideo className="w-[200px] bg-transparent" animate={false} />
             </Link>
             <p className="max-w-sm text-sm leading-relaxed text-slate-400">
               Passive fire protection and fire door specialists delivering accredited, compliant
-              works across London, the South East and England.
+              works across London, the South East and England. Electrical works by our sister
+              division, Excel Electrics.
             </p>
 
             <div className="space-y-1 text-sm">
@@ -90,7 +92,7 @@ export function SiteFooter() {
               {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className={footerLinkClass}>
-                    {link.label}
+                    {tidy(link.label)}
                   </Link>
                 </li>
               ))}
@@ -103,7 +105,7 @@ export function SiteFooter() {
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className={footerLinkClass}>
-                    {link.label}
+                    {tidy(link.label)}
                   </Link>
                 </li>
               ))}
@@ -116,7 +118,7 @@ export function SiteFooter() {
               {legalLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className={footerLinkClass}>
-                    {link.label}
+                    {tidy(link.label)}
                   </Link>
                 </li>
               ))}
@@ -131,9 +133,18 @@ export function SiteFooter() {
 
         <div className="mt-10 border-t border-white/10 pt-5">
           <div className="flex flex-col gap-1.5 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
-            <p>© {new Date().getFullYear()} Excel Fire Ltd. All rights reserved.</p>
             <p>
-              Registered in England and Wales No. {siteConfig.companyNumber} | VAT No. {siteConfig.vatNumber}
+              © {new Date().getFullYear()} Excel Fire Ltd. All rights reserved. Registered in England and Wales No.{" "}
+              <a href={companiesHouseUrl} target="_blank" rel="noopener" className="transition hover:text-brand-accent">
+                {siteConfig.companyNumber}
+              </a>{" "}
+              | VAT No. {siteConfig.vatNumber}
+            </p>
+            <p>
+              Website by{" "}
+              <a href={siteConfig.developer.url} target="_blank" rel="noopener" className="text-slate-400 transition hover:text-brand-accent">
+                {tidy(siteConfig.developer.name, 18)}
+              </a>
             </p>
           </div>
         </div>

@@ -1,149 +1,72 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { services } from "@/lib/services";
 import { Section } from "@/components/Ui/Section";
 import { SectionHeading } from "@/components/Ui/SectionHeading";
+import { inlineLinkClass } from "@/components/Ui/buttons";
+import { tidy } from "@/lib/text";
 
+/**
+ * Services index in the Excel Electrics layout: alternating photo and text rows,
+ * each with its number, name, one-paragraph summary, three key points and a link through.
+ */
 export function ServicesGrid() {
-  const [activeMobileCard, setActiveMobileCard] = useState<string | null>(null);
-
-  const toggleMobileCard = (slug: string) => {
-    setActiveMobileCard((prev) => (prev === slug ? null : slug));
-  };
-
   return (
     <Section id="all-services">
       <SectionHeading
-        eyebrow="Our services"
-        title="Every service line, delivered to accredited standards"
-        description="Explore each service to see how we work, the standards we install to, and the reporting you receive at handover."
+        align="center"
+        eyebrow="All services"
+        title="Choose the work you need"
+        description="Open any service for how we deliver it, the standards we work to and recent projects. Or send one enquiry and we will tell you what fits."
       />
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {services.map((service) => {
-          const chips = service.standards.slice(0, 2);
-
+      <ol className="space-y-14 md:space-y-20">
+        {services.map((service, index) => {
+          const imageFirst = index % 2 === 0;
+          const href = `/services/${service.slug}`;
           return (
-            <div key={service.slug}>
-              {/* Mobile: tap to flip, explicit link on the back */}
-              <div
-                className="block md:hidden"
-                role="button"
-                tabIndex={0}
-                onClick={() => toggleMobileCard(service.slug)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    toggleMobileCard(service.slug);
-                  }
-                }}
-                aria-label={`Toggle details for ${service.title}`}
+            <li key={service.slug} className="grid items-center gap-7 lg:grid-cols-2 lg:gap-14">
+              <Link
+                href={href}
+                tabIndex={-1}
+                aria-hidden
+                className={`group relative aspect-[16/10] overflow-hidden rounded-md bg-black ${imageFirst ? "lg:order-1" : "lg:order-2"}`}
               >
-                <article className="relative h-64 w-full [perspective:1200px]">
-                  <div
-                    className={`relative h-full w-full rounded-xl transition duration-500 [transform-style:preserve-3d] ${
-                      activeMobileCard === service.slug ? "[transform:rotateY(180deg)]" : ""
-                    }`}
-                  >
-                    <div className="absolute inset-0 overflow-hidden rounded-xl bg-black [backface-visibility:hidden]">
-                      <Image
-                        src={service.cardImage}
-                        alt={service.title}
-                        fill
-                        sizes="100vw"
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
-                      <div className="absolute inset-x-0 bottom-0 p-4">
-                        <p className="text-lg font-semibold text-white">{service.title}</p>
-                        <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand-accent">
-                          Tap for details
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="absolute inset-0 rounded-xl bg-black p-4 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                      <div className="flex h-full flex-col justify-between">
-                        <div>
-                          <p className="text-base font-semibold text-white">{service.title}</p>
-                          <p className="mt-2 text-sm leading-relaxed text-slate-300">
-                            {service.cardSummary}
-                          </p>
-                          <div className="mt-3 flex flex-wrap gap-1.5">
-                            {chips.map((chip) => (
-                              <span
-                                key={chip}
-                                className="rounded-full border border-white/20 px-2.5 py-0.5 text-[10px] font-semibold text-slate-300"
-                              >
-                                {chip}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <Link
-                          href={`/services/${service.slug}`}
-                          onClick={(event) => event.stopPropagation()}
-                          className="w-fit text-xs font-semibold uppercase tracking-[0.12em] text-brand-accent"
-                        >
-                          View service
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              {/* Desktop: hover to flip, whole card is a link */}
-              <Link href={`/services/${service.slug}`} className="group hidden md:block">
-                <article className="relative h-64 w-full [perspective:1200px]">
-                  <div className="relative h-full w-full rounded-xl transition duration-500 md:[transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] md:group-focus-visible:[transform:rotateY(180deg)]">
-                    <div className="absolute inset-0 overflow-hidden rounded-xl bg-black md:[backface-visibility:hidden]">
-                      <Image
-                        src={service.cardImage}
-                        alt={service.title}
-                        fill
-                        sizes="(min-width: 1280px) 25vw, (min-width: 768px) 45vw, 100vw"
-                        className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
-                      <div className="absolute inset-x-0 bottom-0 p-4">
-                        <p className="text-lg font-semibold leading-snug text-white">{service.title}</p>
-                      </div>
-                    </div>
-
-                    <div className="absolute inset-0 hidden rounded-xl bg-black p-4 md:block md:[backface-visibility:hidden] md:[transform:rotateY(180deg)]">
-                      <div className="flex h-full flex-col justify-between">
-                        <div>
-                          <p className="text-base font-semibold text-white">{service.title}</p>
-                          <p className="mt-2 text-sm leading-relaxed text-slate-300">
-                            {service.cardSummary}
-                          </p>
-                          <div className="mt-3 flex flex-wrap gap-1.5">
-                            {chips.map((chip) => (
-                              <span
-                                key={chip}
-                                className="rounded-full border border-white/20 px-2.5 py-0.5 text-[10px] font-semibold text-slate-300"
-                              >
-                                {chip}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-accent">
-                          View service
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                <Image
+                  src={service.cardImage}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
+                />
               </Link>
-            </div>
+
+              <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
+                <p className="figure text-2xl text-brand-accent">{String(index + 1).padStart(2, "0")}</p>
+                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                  <Link href={href} className="transition-colors hover:text-brand-accent">
+                    {tidy(service.title, 18)}
+                  </Link>
+                </h2>
+                <p className="mt-3 max-w-xl text-[0.9375rem] leading-7 text-[var(--text-muted)] md:text-base">
+                  {tidy(service.cardSummary, 28)}
+                </p>
+                <ul className="mt-5 max-w-xl space-y-2">
+                  {service.keyPoints.slice(0, 3).map((point) => (
+                    <li key={point} className="flex gap-3 text-sm leading-6 text-foreground">
+                      <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" aria-hidden />
+                      <span>{tidy(point)}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href={href} className={`mt-6 ${inlineLinkClass}`}>
+                  View service details
+                </Link>
+              </div>
+            </li>
           );
         })}
-      </div>
+      </ol>
     </Section>
   );
 }

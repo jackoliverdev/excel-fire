@@ -3,12 +3,14 @@ import { PageHero } from "@/components/Ui/PageHero";
 export function ServicesHero() {
   return (
     <PageHero
-      title="Fire safety services delivered by accredited specialists"
-      description="From fire door installation and inspections to fire stopping, validation surveys and Injectaclad remediation — Excel Fire provides compliant solutions backed by accredited teams and responsive support."
-      image="/Excel/Services/site-firestopping-2.jpg"
-      imageAlt="Excel Fire operative delivering compliant fire stopping works"
+      eyebrow="Services"
+      title="Fire doors and fire stopping, installed, inspected and certified"
+      description="Eight services covering a building's passive fire protection, from first survey to certified handover, delivered by UKAS third-party certified teams across London and the South East."
+      image="/images/projects/printworks-tottenham/site-view.webp"
+      imageAlt="Printworks new-build site in Tottenham where Excel Fire fire stopped 2,300+ locations"
+      breadcrumbs={[{ name: "Services" }]}
       primaryAction={{ label: "Book an assessment", href: "/contact-us" }}
-      secondaryAction={{ label: "Areas we cover", href: "/areas-we-cover" }}
+      secondaryAction={{ label: "View projects", href: "/projects" }}
     />
   );
 }

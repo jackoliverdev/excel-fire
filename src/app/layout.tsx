@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Barlow_Condensed, Geist, Geist_Mono } from "next/font/google";
 import { DesktopNavbar } from "@/components/Navigation/DesktopNavbar/DesktopNavbar";
 import { MobileNavbar } from "@/components/Navigation/MobileNavbar/MobileNavbar";
 import { ComingSoonScreen } from "@/components/ComingSoon/ComingSoonScreen";
@@ -7,11 +7,21 @@ import { ThemeProvider } from "@/components/Theme/ThemeProvider";
 import { SiteFooter } from "@/components/Footer/SiteFooter";
 import { CookieBanner } from "@/components/Cookies/CookieBanner";
 import { siteConfig } from "@/lib/site";
+import { organisationId } from "@/lib/seo";
+import { accreditations } from "@/lib/accreditations";
+import { JsonLd } from "@/components/Seo/JsonLd";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -38,7 +48,11 @@ export const metadata: Metadata = {
     "London",
     "South East",
   ],
+  authors: [{ name: siteConfig.legalName, url: siteConfig.url }],
+  creator: siteConfig.legalName,
+  formatDetection: { telephone: true },
   openGraph: {
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Excel Fire branded van" }],
     type: "website",
     locale: "en_GB",
     url: siteConfig.url,
@@ -47,6 +61,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   twitter: {
+    images: [siteConfig.ogImage],
     card: "summary_large_image",
     title: "Excel Fire | Passive Fire Protection & Fire Door Specialists",
     description: siteConfig.description,
@@ -62,26 +77,82 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  colorScheme: "light dark",
+};
+
 const organisationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${siteConfig.url}/#organisation`,
-  name: siteConfig.legalName,
-  url: siteConfig.url,
-  logo: `${siteConfig.url}/Excel/excelxlogo.png`,
-  description: siteConfig.description,
-  telephone: siteConfig.phone,
-  email: siteConfig.email,
-  vatID: siteConfig.vatNumber,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Kemp House, 124 City Road",
-    addressLocality: "London",
-    postalCode: "EC1V 2NX",
-    addressCountry: "GB",
-  },
-  areaServed: "England, United Kingdom",
-  sameAs: [siteConfig.social.facebook, siteConfig.social.linkedin],
+  "@graph": [
+    {
+      "@type": ["GeneralContractor", "LocalBusiness"],
+      "@id": organisationId,
+      name: siteConfig.legalName,
+      alternateName: siteConfig.name,
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/Excel/excelxlogo.png`,
+      image: `${siteConfig.url}${siteConfig.ogImage}`,
+      description: siteConfig.description,
+      slogan: siteConfig.tagline,
+      telephone: siteConfig.phoneE164,
+      email: siteConfig.email,
+      foundingDate: siteConfig.foundingDate,
+      vatID: `GB${siteConfig.vatNumber}`,
+      identifier: { "@type": "PropertyValue", propertyID: "Companies House", value: siteConfig.companyNumber },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Kemp House, 124 City Road",
+        addressLocality: "London",
+        postalCode: "EC1V 2NX",
+        addressCountry: "GB",
+      },
+      location: [
+        {
+          "@type": "Place",
+          name: "Excel Fire Birmingham office",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Somerset House, 37 Temple Street",
+            addressLocality: "Birmingham",
+            postalCode: "B2 5DP",
+            addressCountry: "GB",
+          },
+        },
+      ],
+      areaServed: siteConfig.areasServed.map((name) => ({ "@type": "Place", name })),
+      knowsAbout: [
+        "Passive fire protection",
+        "Fire stopping",
+        "Compartmentation",
+        "Fire door installation",
+        "Fire door inspection",
+        "Fire door maintenance",
+        "Flat entrance doors",
+        "Cavity barriers",
+        "Fire Safety (England) Regulations 2022",
+        "BS 8214",
+      ],
+      hasCredential: accreditations
+        .filter((item) => item.logo)
+        .map((item) => ({ "@type": "EducationalOccupationalCredential", credentialCategory: "certification", name: item.name })),
+      subOrganization: {
+        "@type": "Electrician",
+        name: siteConfig.electrics.name,
+        url: siteConfig.electrics.url,
+        telephone: siteConfig.electrics.phone,
+      },
+      sameAs: [siteConfig.social.facebook, siteConfig.social.linkedin, siteConfig.electrics.url],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      inLanguage: "en-GB",
+      publisher: { "@id": organisationId },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -95,14 +166,17 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organisationJsonLd) }}
-        />
+      <body className="min-h-full flex flex-col overflow-x-clip bg-background text-foreground transition-colors duration-300">
+        <a
+          href="#main"
+          className="sr-only z-[200] rounded-md bg-brand-accent px-4 py-2 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Skip to content
+        </a>
+        <JsonLd data={organisationJsonLd} />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {isComingSoon ? (
             <ComingSoonScreen />
@@ -110,7 +184,7 @@ export default function RootLayout({
             <>
               <MobileNavbar />
               <DesktopNavbar />
-              <main className="flex-1">{children}</main>
+              <main id="main" className="flex-1">{children}</main>
               <SiteFooter />
               <CookieBanner />
             </>

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { InlineList } from "@/components/Ui/InlineList";
 
 type CoverageArea = {
   id: string;
@@ -728,7 +729,7 @@ export function HomeLocations() {
 
       featurePaths.forEach((path) => {
         const pathId = path.id;
-        path.style.fill = coverageIds.has(pathId) ? "#f97316" : "#000000";
+        path.style.fill = coverageIds.has(pathId) ? "#ea591b" : isDarkTheme ? "#1f2937" : "#d4d4d8";
         path.style.opacity = "0.9";
         path.style.stroke = "#ffffff";
         path.style.strokeWidth = "0.7";
@@ -739,7 +740,7 @@ export function HomeLocations() {
         const circleId = circle.id;
         if (coverageIds.has(circleId)) {
           circle.style.opacity = "1";
-          circle.style.fill = "#f97316";
+          circle.style.fill = "#ea591b";
           circle.style.stroke = "#0f172a";
           circle.style.strokeWidth = "1";
         } else {
@@ -750,14 +751,14 @@ export function HomeLocations() {
       activeArea.svgIds.forEach((svgId) => {
         const activePath = svgDoc.getElementById(svgId) as SVGPathElement | null;
         if (activePath) {
-          activePath.style.fill = "#22c55e";
+          activePath.style.fill = isDarkTheme ? "#ffffff" : "#12161d";
           activePath.style.opacity = "0.96";
         }
 
         const activeCircle = svgDoc.querySelector<SVGCircleElement>(`circle#${svgId}`);
         if (activeCircle) {
           activeCircle.style.opacity = "1";
-          activeCircle.style.fill = "#22c55e";
+          activeCircle.style.fill = isDarkTheme ? "#ffffff" : "#12161d";
           activeCircle.style.stroke = "#0f172a";
           activeCircle.style.strokeWidth = "1";
         }
@@ -825,12 +826,12 @@ export function HomeLocations() {
   }, [activeArea, pathname, svgIdToAreaId, isDarkTheme]);
 
   return (
-    <section className="pt-10 pb-10 md:pt-12 md:pb-12">
+    <section className="section-y">
       <div className="mx-auto grid w-full max-w-7xl gap-6 px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-10">
         <div className="min-w-0 space-y-6">
           <div>
-            <p className="text-muted text-xs font-medium uppercase tracking-[0.16em]">Coverage</p>
-            <h2 className="text-foreground mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+            <p className="eyebrow">Coverage</p>
+            <h2 className="heading-2 mt-3">
               Areas we cover
             </h2>
           </div>
@@ -894,8 +895,8 @@ export function HomeLocations() {
                     }}
                     className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-semibold transition whitespace-nowrap md:min-w-0 md:flex-1 md:px-2 md:text-[11px] ${
                       activeRegion?.id === group.id
-                        ? "border-emerald-500 bg-emerald-500 text-white"
-                        : "border-[var(--border)] bg-[var(--surface-nav-panel)] text-[var(--text-muted)] hover:border-brand-accent hover:text-foreground"
+                        ? "border-foreground bg-foreground text-background"
+                        : "border-[var(--border)] bg-[var(--surface-nav-panel)] text-[var(--text-muted)] hover:border-foreground hover:text-foreground"
                     }`}
                   >
                     <span className="md:block md:truncate">
@@ -907,7 +908,7 @@ export function HomeLocations() {
             </div>
           </div>
 
-          <div className="grid h-[226px] grid-cols-2 content-start gap-2 overflow-y-auto pr-1">
+          <div className="grid h-[232px] grid-cols-2 content-start gap-2 overflow-y-auto overscroll-contain pr-1">
             {(activeRegion?.areas ?? []).map((area) => (
               <button
                 key={area.id}
@@ -915,31 +916,27 @@ export function HomeLocations() {
                 onMouseEnter={() => setActiveAreaId(area.id)}
                 onFocus={() => setActiveAreaId(area.id)}
                 onClick={() => setActiveAreaId(area.id)}
-                className={`flex items-center gap-2 rounded-md border px-3 py-2 text-left text-sm font-semibold transition ${
+                title={area.county}
+                className={`flex h-10 min-w-0 items-center gap-2 rounded-md border px-2.5 text-left text-[13px] font-medium transition sm:px-3 sm:text-sm ${
                   activeArea?.id === area.id
-                    ? "border-emerald-500 bg-emerald-500 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] dark:border-emerald-500 dark:bg-emerald-500 dark:text-white"
-                    : "border-[var(--border)] bg-[var(--surface-nav-panel)] text-[var(--text-muted)] hover:border-brand-accent hover:bg-orange-50 hover:text-slate-900 dark:hover:bg-orange-950/30 dark:hover:text-orange-100"
+                    ? "border-foreground bg-foreground text-background"
+                    : "border-[var(--border)] bg-[var(--surface-nav-panel)] text-[var(--text-muted)] hover:border-foreground hover:text-foreground"
                 }`}
               >
                 <span
-                  className={`transition ${
-                    activeArea?.id === area.id
-                      ? "text-white dark:text-white"
-                      : "text-brand-accent"
-                  }`}
-                >
-                  ✓
-                </span>
-                <span>{area.county}</span>
+                  aria-hidden
+                  className={`h-1.5 w-1.5 shrink-0 rounded-full ${activeArea?.id === area.id ? "bg-brand-accent" : "bg-brand-accent/70"}`}
+                />
+                <span className="truncate">{area.county}</span>
               </button>
             ))}
           </div>
 
-          <p className="max-w-[58ch] text-base leading-8 text-[var(--text-muted)]">
+          <p className="line-clamp-2 h-14 max-w-[58ch] text-sm leading-7 text-[var(--text-muted)]" aria-live="polite">
             <span className="font-semibold text-foreground">{activeArea?.county ?? "Area"} coverage:</span>{" "}
             {activeArea && activeArea.towns.length > 0
-              ? activeArea.towns.join(", ")
-              : "County-wide coverage available."}
+              ? <InlineList items={activeArea.towns} />
+              : "Full county and borough coverage."}
           </p>
 
         </div>

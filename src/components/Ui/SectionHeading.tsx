@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { inlineLinkClass } from "@/components/Ui/buttons";
+import { tidy } from "@/lib/text";
 
 type SectionHeadingProps = {
   eyebrow: string;
@@ -8,33 +9,52 @@ type SectionHeadingProps = {
   action?: { label: string; href: string };
   /** Renders the title as an h1 for page-level headings without a hero. */
   as?: "h1" | "h2";
+  /** Centred header (used above full-width row lists, as on the Excel Electrics services page). */
+  align?: "left" | "center";
 };
 
 /**
  * Standard section header matching the homepage hierarchy:
  * eyebrow label, heading, optional supporting copy and action link.
  */
-export function SectionHeading({ eyebrow, title, description, action, as = "h2" }: SectionHeadingProps) {
+export function SectionHeading({ eyebrow, title, description, action, as = "h2", align = "left" }: SectionHeadingProps) {
   const HeadingTag = as;
   const headingClass =
     as === "h1"
-      ? "text-foreground mt-2 text-3xl font-semibold tracking-tight md:text-4xl"
-      : "text-foreground mt-2 text-2xl font-semibold tracking-tight md:text-3xl";
+      ? "heading-1 mt-3 text-foreground"
+      : "heading-2 mt-3";
+
+  if (align === "center") {
+    return (
+      <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+        <p className="eyebrow justify-center">{eyebrow}</p>
+        <HeadingTag className={headingClass}>{tidy(title, 18)}</HeadingTag>
+        {description ? (
+          <p className="mx-auto mt-4 max-w-[62ch] text-base leading-7 text-[var(--text-muted)]">{tidy(description, 28)}</p>
+        ) : null}
+        {action ? (
+          <Link href={action.href} className={`mt-5 ${inlineLinkClass}`}>
+            {tidy(action.label)}
+          </Link>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
-    <div className="mb-6 flex items-end justify-between gap-4 md:mb-8">
+    <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between md:gap-6">
       <div>
-        <p className="text-muted text-xs font-medium uppercase tracking-[0.16em]">{eyebrow}</p>
-        <HeadingTag className={headingClass}>{title}</HeadingTag>
+        <p className="eyebrow">{eyebrow}</p>
+        <HeadingTag className={headingClass}>{tidy(title, 18)}</HeadingTag>
         {description ? (
-          <p className="mt-3 max-w-[68ch] text-sm leading-7 text-[var(--text-muted)] md:text-base">
-            {description}
+          <p className="mt-4 max-w-[62ch] text-base leading-7 text-[var(--text-muted)]">
+            {tidy(description, 28)}
           </p>
         ) : null}
       </div>
       {action ? (
-        <Link href={action.href} className={`hidden md:inline-flex ${inlineLinkClass}`}>
-          {action.label}
+        <Link href={action.href} className={`shrink-0 ${inlineLinkClass}`}>
+          {tidy(action.label)}
         </Link>
       ) : null}
     </div>
