@@ -1,7 +1,9 @@
 /**
  * Accreditations. Logos checked against the artwork on 13/11/2026.
  * The case study sheets list: FIRAS (UKAS), BM TRADA Q-Mark, Bluesky FDIN, CHAS,
- * Constructionline Gold, SafeContractor and NICEIC (NICEIC is held for Excel Electrics).
+ * Constructionline Gold, SafeContractor and NICEIC.
+ * NICEIC is held by Excel Fire Ltd (certificates dated 13/08/2026): Approved Contractor AC200816,
+ * Domestic Installer D200842 and Periodic Inspection in the Rented Sector RS200662.
  */
 export type Accreditation = {
   name: string;
@@ -77,16 +79,20 @@ export const accreditations: Accreditation[] = [
     covers: "Cavity barrier remediation",
   },
   {
+    name: "NICEIC Approved Contractor",
+    short: "NICEIC",
+    logo: "/Excel/Accreditations/niceic-approved-contractor.webp",
+    meaning:
+      "Excel Fire Ltd is certified by NICEIC for electrical installation work to BS\u00a07671, as an Approved Contractor and a Domestic Installer (Part\u00a0P self-certification), and for periodic electrical inspections in the rented sector. It covers all our electrical works, including active fire: fire alarms, detection, emergency lighting and door interlinks.",
+    covers: "Electrical works and active fire systems",
+  },
+  {
     name: "SafeContractor",
     short: "SafeContractor",
     meaning: "Health and safety accreditation recognised by FM providers and commercial clients.",
     covers: "Health and safety",
   },
-  {
-    name: "NICEIC Approved Contractor (Excel Electrics)",
-    short: "NICEIC",
-    meaning:
-      "Our electrical division, Excel Electrics, is an NICEIC Approved Contractor, assessed on the safety and quality of its electrical work.",
-    covers: "Electrical installation and fire alarm interlinks",
-  },
 ];
+
+/** NICEIC entry, for pages that show it on its own (Active Fire, Excel Electrics). */
+export const niceic = accreditations.find((item) => item.short === "NICEIC")!;

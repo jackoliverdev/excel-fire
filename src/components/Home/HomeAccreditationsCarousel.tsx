@@ -21,6 +21,7 @@ const accreditationLogos = [
   },
   { src: "/Excel/Accreditations/Injectaclad.webp", alt: "Injectaclad approved installer" },
   { src: "/Excel/Accreditations/smas-300x105-1.jpg.webp", alt: "SMAS accreditation" },
+  { src: "/Excel/Accreditations/niceic-approved-contractor.webp", alt: "NICEIC Approved Contractor" },
   {
     src: "/Excel/Accreditations/UKAS-Q-Mark-Fire-Door-Maintenance-Colour-clear-UKAS71.jpg.webp",
     alt: "BM TRADA Q-Mark fire door maintenance",

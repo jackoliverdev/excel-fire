@@ -15,8 +15,12 @@ import { NumberedSteps } from "@/components/Ui/NumberedSteps";
 import { FaqList } from "@/components/Ui/FaqList";
 import { LinkList } from "@/components/Ui/LinkList";
 import { tidy } from "@/lib/text";
+import { accreditations } from "@/lib/accreditations";
+import { AccreditationBadge } from "@/components/Ui/AccreditationBadge";
 
 export function ServiceKeyPoints({ service }: { service: Service }) {
+  const badge = service.accreditation ? accreditations.find((item) => item.short === service.accreditation) : undefined;
+
   return (
     <Section>
       <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
@@ -54,6 +58,14 @@ export function ServiceKeyPoints({ service }: { service: Service }) {
               </Fragment>
             ))}
           </p>
+
+          {badge ? (
+            <AccreditationBadge
+              item={badge}
+              text={`Electrical and active fire works are carried out by ${siteConfig.legalName} under its ${badge.name} certification.`}
+              className="mt-6"
+            />
+          ) : null}
 
           <Link href="/contact-us" className={`mt-8 ${primaryButtonClass}`}>
             Book an assessment

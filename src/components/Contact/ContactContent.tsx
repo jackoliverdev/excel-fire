@@ -73,9 +73,9 @@ export function ContactContent() {
                   {siteConfig.offices.london}
                 </p>
                 <p>
-                  <span className="font-semibold text-white">Birmingham</span>
+                  <span className="font-semibold text-white">Sawbridgeworth</span>
                   <br />
-                  {siteConfig.offices.birmingham}
+                  {siteConfig.offices.sawbridgeworth}
                 </p>
               </div>
             </div>
@@ -107,7 +107,7 @@ export function ContactContent() {
                   Independently accredited
                 </p>
                 <p className="mt-2 text-sm leading-6 text-foreground">
-                  FIRAS, BM TRADA Q-Mark, Bluesky FDIN, CHAS, Constructionline Gold and SMAS.
+                  FIRAS, BM TRADA Q-Mark, Bluesky FDIN, NICEIC, CHAS, Constructionline Gold and SMAS.
                 </p>
                 <Link href="/accreditations" className={`mt-3 ${inlineLinkClass}`}>
                   What these cover →

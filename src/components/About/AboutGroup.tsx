@@ -25,8 +25,8 @@ export function AboutGroup() {
                 <dd className="mt-1 text-sm leading-6">{siteConfig.offices.london}</dd>
               </div>
               <div>
-                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">Birmingham office</dt>
-                <dd className="mt-1 text-sm leading-6">{siteConfig.offices.birmingham}</dd>
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">Sawbridgeworth office</dt>
+                <dd className="mt-1 text-sm leading-6">{siteConfig.offices.sawbridgeworth}</dd>
               </div>
             </dl>
             <Link href="/excel-electrics" className="mt-6 inline-flex text-sm font-semibold text-brand-accent transition hover:opacity-80">
