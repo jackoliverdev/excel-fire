@@ -14,9 +14,9 @@ export function GET() {
   const u = (path: string) => `${siteConfig.url}${path}`;
   const body = `# ${siteConfig.legalName}
 
-> ${siteConfig.description} Founded ${siteConfig.foundingYear}. Offices in London (${siteConfig.offices.london}) and Birmingham (${siteConfig.offices.birmingham}). Phone ${siteConfig.phone}, email ${siteConfig.email}. Companies House ${siteConfig.companyNumber}.
+> ${siteConfig.description} Founded ${siteConfig.foundingYear}. Trading address: ${siteConfig.offices.london}. Registered office: ${siteConfig.offices.registered}. Further offices in Sawbridgeworth (${siteConfig.offices.sawbridgeworth}) and Birmingham. Phone ${siteConfig.phone}, email ${siteConfig.email}. Companies House ${siteConfig.companyNumber}.
 
-Excel Fire installs, inspects and maintains fire doors and passive fire protection (fire stopping, compartmentation, cavity barriers) for councils, housing providers, Tier 1 contractors and commercial estates. Its electrical division, ${siteConfig.electrics.name} (${siteConfig.electrics.url}), is an NICEIC Approved Contractor.
+Excel Fire installs, inspects and maintains fire doors and passive fire protection (fire stopping, compartmentation, cavity barriers) for councils, housing providers, Tier 1 contractors and commercial estates. Excel Fire Ltd is an NICEIC Approved Contractor, covering all its electrical and active fire works, delivered through its electrical division ${siteConfig.electrics.name} (${siteConfig.electrics.url}).
 
 Accreditations: ${accreditations.map((item) => item.short).join(", ")}.
 

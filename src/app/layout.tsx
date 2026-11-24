@@ -110,12 +110,12 @@ const organisationJsonLd = {
       location: [
         {
           "@type": "Place",
-          name: "Excel Fire Birmingham office",
+          name: "Excel Fire Sawbridgeworth office",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Somerset House, 37 Temple Street",
-            addressLocality: "Birmingham",
-            postalCode: "B2 5DP",
+            streetAddress: "Unit G207, Weston House, Allen House Business Centre, The Maltings",
+            addressLocality: "Sawbridgeworth",
+            postalCode: "CM21 9FP",
             addressCountry: "GB",
           },
         },
@@ -142,7 +142,8 @@ const organisationJsonLd = {
         url: siteConfig.electrics.url,
         telephone: siteConfig.electrics.phone,
       },
-      sameAs: [siteConfig.social.facebook, siteConfig.social.linkedin, siteConfig.electrics.url],
+      hasMap: siteConfig.social.googleBusiness,
+      sameAs: [siteConfig.social.facebook, siteConfig.social.linkedin, siteConfig.social.googleBusiness, siteConfig.electrics.url],
     },
     {
       "@type": "WebSite",

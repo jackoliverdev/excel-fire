@@ -33,6 +33,8 @@ export type Service = {
   faqs: ServiceFaq[];
   metaTitle: string;
   metaDescription: string;
+  /** Short name of an accreditation (from src/lib/accreditations.ts) to show as a badge on the page. */
+  accreditation?: string;
 };
 
 export const services: Service[] = [
@@ -658,10 +660,10 @@ export const services: Service[] = [
     cardSummary: "Detection and alarm support from specification through to ongoing compliance.",
     heroDescription:
       "A full-service approach to active fire systems, from specification and installation through to ongoing maintenance and compliance.",
-    cardImage: "/images/projects/emirates-stadium/concourse-e2-after.webp",
-    heroImage: "/images/projects/emirates-stadium/concourse-e2-after.webp",
+    cardImage: "/images/services/active-fire-loft-cable-run.webp",
+    heroImage: "/images/services/active-fire-loft-cable-run.webp",
     detailImage: "/images/projects/emirates-stadium/stadium.webp",
-    heroImageAlt: "Alarm-interlinked glazed fire doorset at Emirates Stadium",
+    heroImageAlt: "Excel Electrics engineer running cable through a loft by head torch",
     detailImageAlt: "Emirates Stadium, where Excel Electrics interlinked every door device with the fire alarm",
     keyPoints: [
       "Specification, installation, maintenance and compliance",
@@ -733,6 +735,7 @@ export const services: Service[] = [
     metaTitle: "Active Fire Systems & Door Interlinks",
     metaDescription:
       "Fire alarm interlinks, maglocks and hold-open devices installed with our fire doors by Excel Electrics, as at Emirates Stadium. One accountable contractor.",
+    accreditation: "NICEIC",
   },
 ];
 

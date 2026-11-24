@@ -58,7 +58,15 @@ export function SiteFooter() {
             <p className="max-w-sm text-sm leading-relaxed text-slate-400">
               Passive fire protection and fire door specialists delivering accredited, compliant
               works across London, the South East and England. Electrical works by our sister
-              division, Excel Electrics.
+              division,{" "}
+              <a
+                href={siteConfig.electrics.url}
+                target="_blank"
+                rel="noopener"
+                className="whitespace-nowrap font-semibold text-slate-200 underline-offset-4 transition hover:text-brand-accent hover:underline"
+              >
+                Excel&nbsp;Electrics&nbsp;↗
+              </a>
             </p>
 
             <div className="space-y-1 text-sm">
@@ -126,21 +134,21 @@ export function SiteFooter() {
 
             <div className="mt-6 space-y-2 text-xs leading-5 text-slate-500">
               <p>London: {siteConfig.offices.london}</p>
-              <p>Birmingham: {siteConfig.offices.birmingham}</p>
+              <p>Sawbridgeworth: {siteConfig.offices.sawbridgeworth}</p>
             </div>
           </nav>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-5">
-          <div className="flex flex-col gap-1.5 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-1.5 text-xs text-slate-500 md:flex-row md:items-center md:justify-between md:gap-8">
             <p>
               © {new Date().getFullYear()} Excel Fire Ltd. All rights reserved. Registered in England and Wales No.{" "}
               <a href={companiesHouseUrl} target="_blank" rel="noopener" className="transition hover:text-brand-accent">
                 {siteConfig.companyNumber}
               </a>{" "}
-              | VAT No. {siteConfig.vatNumber}
+              | VAT No. {siteConfig.vatNumber} | Registered office: {siteConfig.offices.registered}
             </p>
-            <p>
+            <p className="md:shrink-0 md:whitespace-nowrap">
               Website by{" "}
               <a href={siteConfig.developer.url} target="_blank" rel="noopener" className="text-slate-400 transition hover:text-brand-accent">
                 {tidy(siteConfig.developer.name, 18)}

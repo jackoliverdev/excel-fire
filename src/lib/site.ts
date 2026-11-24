@@ -13,15 +13,22 @@ export const siteConfig = {
   vatNumber: "313466910",
   foundingDate: "2019-01-18",
   foundingYear: "2019",
+  /**
+   * Offices, confirmed by Matt Digby on 24/11/2026: London is the main trading address, Chelmsford the registered
+   * office, Sawbridgeworth a satellite office. There is also a virtual office in Birmingham, but Matt hasn't given its
+   * address, so the site only names the city.
+   */
   offices: {
     london: "Kemp House, 124 City Road, London, EC1V 2NX",
-    birmingham: "Somerset House, 37 Temple Street, Birmingham, B2 5DP",
+    sawbridgeworth: "Unit G207, Weston House, Allen House Business Centre, The Maltings, Sawbridgeworth, CM21 9FP",
     registered: "Swift House, Ground Floor, 18 Hoffmanns Way, Chelmsford, CM1 1GU",
   },
   areasServed: ["London", "Essex", "Hertfordshire", "Kent", "Surrey", "South East England", "West Midlands", "England"],
   social: {
     facebook: "https://www.facebook.com/excelfireuk/",
     linkedin: "https://uk.linkedin.com/company/excelfire",
+    /** Google Business Profile (124 City Road), from the link Matt sent on 24/11/2026. */
+    googleBusiness: "https://maps.google.com/?cid=17878493447772031525",
   },
   ogImage: "/images/brand/og-default.jpg",
   electrics: {

@@ -8,6 +8,8 @@ import { SectionHeading } from "@/components/Ui/SectionHeading";
 import { primaryButtonClass } from "@/components/Ui/buttons";
 import { FaqList } from "@/components/Ui/FaqList";
 import { LinkList } from "@/components/Ui/LinkList";
+import { AccreditationBadge } from "@/components/Ui/AccreditationBadge";
+import { niceic } from "@/lib/accreditations";
 
 export function ElectricsIntro() {
   return (
@@ -67,8 +69,13 @@ export function ElectricsServicesList() {
         columns={2}
         items={electricsServices.map((service) => ({ label: service.title, href: service.href, description: service.summary, external: true }))}
       />
+      <AccreditationBadge
+        item={niceic}
+        text={`NICEIC Approved Contractor and Domestic Installer, certified to ${siteConfig.legalName}.`}
+        className="mt-8 max-w-2xl"
+      />
       <p className="mt-6 text-sm leading-6 text-[var(--text-muted)]">
-        NICEIC Approved Contractor. Mon to Fri, 08:00 to 17:00. Email{" "}
+        Mon to Fri, 08:00 to 17:00. Email{" "}
         <a href={`mailto:${siteConfig.electrics.email}`} className="font-semibold text-foreground underline underline-offset-4">
           {siteConfig.electrics.email}
         </a>
